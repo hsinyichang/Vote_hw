@@ -1,1 +1,1 @@
-新增投票的表單
+<form action="../api/add_vote.php" method="post"></form>
