@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="header">
-    <?php include "./layout/header.php";
+    <?php include "./layout/slider.php";
           include "./layout/back_nav.php";
     ?>
 </div>
