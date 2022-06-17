@@ -102,7 +102,7 @@ function find($table,$arg){
 function del($table,$arg){
     $pdo=pdo();
 
-$sql="DELETE FROM $table WHERE ";
+    $sql="DELETE FROM $table WHERE ";
     if(is_array($arg)){
 
         foreach($arg as $key => $value){
@@ -179,7 +179,7 @@ function  save($table,$arg){
 
         }
         //建立更新的sql語法
-        $sql.="UPDATE $table SET ".implode(" AND " ,$tmp)." WHERE `id`='{$arg['id']}'";
+        $sql.="UPDATE $table SET ".implode(" , " ,$tmp)." WHERE `id`='{$arg['id']}'";
 
     }else{
         //insert
@@ -190,9 +190,16 @@ function  save($table,$arg){
         $sql="INSERT INTO $table (`$cols`) VALUES('$values')";
 
     }
-    
+    //echo $sql;
     return $pdo->exec($sql);
 
+}
+
+
+function dd($array){
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
 }
 
 ?>
