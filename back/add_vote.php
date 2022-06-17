@@ -1,8 +1,14 @@
-<form action="../api/add_vote.php" method="post">
+<form action="./api/add_vote.php" method="post">
     <div>
         <label for="subject">投票主題：</label>
         <input type="text" name="subject" id="subject">
         <input type="button" value="新增選項" onclick="more()">
+    </div>
+    <div id="selector">
+        <input type="radio" name="multiple" value="0" checked>
+        <label>單選</label>
+        <input type="radio" name="multiple" value="1" >
+        <label>複選</label>
     </div>
     <div id="options">
         <div>
