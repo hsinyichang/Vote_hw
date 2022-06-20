@@ -191,7 +191,7 @@ function  save($table,$arg){
         $sql="INSERT INTO $table (`$cols`) VALUES('$values')";
 
     }
-    //echo $sql;
+    // echo $sql;
     return $pdo->exec($sql);
 
 }
