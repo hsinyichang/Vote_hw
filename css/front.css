@@ -21,6 +21,9 @@
     background:blue;
     color:#ccc;
 }
+.list-header div a{
+    color:#ccc
+}
 .list-items div{
     width:calc(100% / 5);
     padding:0.5rem 1rem;
@@ -38,4 +41,13 @@
 .list-items:hover{
     background-color: rgb(216, 255, 237);
     cursor: pointer;
+}
+
+.result-table{
+    border-collapse: collapse;
+    box-shadow: 0 0 6px #bbb;
+}
+.result-table td{
+    padding: 0.25rem;
+    border:1px solid #ccc;
 }
