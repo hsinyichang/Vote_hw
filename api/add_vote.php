@@ -8,7 +8,7 @@ $subject=$_POST['subject'];
 //建立資料陣列，請參考base.php中的函式save($table,$arg)
 $add_subject=[
     'subject'=>$subject,
-    'type_id'=>1,
+    'type_id'=>$_POST['types'],
     'start'=>date("Y-m-d"),
     'end'=>date("Y-m-d",strtotime("+10 days")),
 ];
