@@ -1,5 +1,5 @@
 <nav>
-        <a href="index.php">回首頁</a>
-        <a href="index.php">登入</a>
-        <a href="index.php">投票列表</a>
+        <div><a href="index.php"><i class="fa-solid fa-house"></i>回首頁</a></div>
+        <div><a href="index.php"><i class="fa-solid fa-circle-user"></i>登入</a></div>
+        <div><a href="index.php"><i class="fa-solid fa-bars"></i>投票列表</a></div>
     </nav>
