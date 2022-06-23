@@ -48,8 +48,25 @@
             <td><input type="password" name="pw" value="<?=$user['pw'];?>"></td>
         </tr>
         <tr>
+            <td>姓名</td>
+            <td><input type="text" name="name" value="<?=$user['name'];?>"></td>
+        </tr>
+        <tr>
             <td>生日</td>
             <td><input type="date" name="birthday" value="<?=$user['birthday'];?>"></td>
+        </tr>
+        <tr>
+        <td>性別</td>
+            <td>男<input type="radio" name="gender" value="1" <?=($user['multiple']==1)?'checked':'';?>>
+            女<input type="radio" name="gender" value="0" <?=($user['multiple']==0)?'checked':'';?>></td>
+        </tr>
+        <tr>
+            <td>地址</td>
+            <td><input type="text" name="addr" value="<?=$user['addr'];?>"></td>
+        </tr>
+        <tr>
+            <td>教育程度</td>
+            <td><input type="text" name="education" value="<?=$user['education'];?>"></td>
         </tr>
         <tr>
             <td>密碼提示</td>

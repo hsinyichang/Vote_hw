@@ -43,13 +43,13 @@
     <!-- <?php 
 
 
-$sql="select * from `users` ";
+// $sql="select * from `users` ";
 
-$users=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+// $users=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
-foreach($users as $user){
-    echo $user['acc']."<br>";
-}
+// foreach($users as $user){
+//     echo $user['acc']."<br>";
+// }
 
 ?> 這裡可以看到所註冊的會員帳號-->
 </body>

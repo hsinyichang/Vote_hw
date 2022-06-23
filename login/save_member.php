@@ -4,7 +4,8 @@ include_once "connect.php";
 
 $sql="UPDATE `users` 
         SET `pw`='{$_POST['pw']}',
-            `birthday`='{$_POST['birthday']}',
+            `addr`='{$_POST['addr']}',
+            `education`='{$_POST['education']}',
             `passnote`='{$_POST['passnote']}',
             `email`='{$_POST['email']}'
         WHERE `id`='{$_POST['id']}'"; 

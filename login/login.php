@@ -51,7 +51,7 @@
         input::-webkit-input-placeholder {
         color: #b9b9b9;    /* 更改placeholder的字體顏色  */
         font-size:22px;    /* 更改placeholder的字體大小  */
-        text-align: center;
+        text-align: left;
         }
         table td{
             padding:1rem;

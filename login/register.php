@@ -19,8 +19,29 @@
             <td><input type="password" name="pw" id=""></td>
         </tr>
         <tr>
+            <td>姓名</td>
+            <td><input type="text" name="name" id=""></td>
+        </tr>
+        <tr>
             <td>生日</td>
             <td><input type="date" name="birthday" id=""></td>
+        </tr>
+        <tr>
+            <td>性別</td>
+            <td>男<input type="radio" name="gender" value="1">
+            女<input type="radio" name="gender" value="0"></td>
+        </tr>
+        <tr>
+            <td>地址</td>
+            <td><input type="text" name="addr" id=""></td>
+        </tr>
+        <tr>
+            <td>教育程度</td>
+            <td><input type="text" name="education" id="" placeholder="國小/國中/高中/大學/碩士"></td>
+        </tr>
+        <tr>
+            <td>註冊時間</td>
+            <td><input type="date" name="reg_date" id="" ></td>
         </tr>
         <tr>
             <td>密碼提示</td>

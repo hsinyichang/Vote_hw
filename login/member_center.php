@@ -57,8 +57,17 @@
     echo 'ID:'.$user['id'].'<br>';
     echo '帳號:'.$user['acc'].'<br>';
     echo '密碼:******<br>';
-    echo '密碼提示:'.$user['passnote'].'<br>';
+    echo '姓名:'.$user['name'].'<br>';
     echo '生日:'.$user['birthday'].'<br>';
+    if($user['gender']==0){
+        echo '性別:女'.'<br>';
+    }else{
+        echo '性別:男'.'<br>';
+    }
+    echo '地址:'.$user['addr'].'<br>';
+    echo '教育程度:'.$user['education'].'<br>';
+    echo '註冊時間:'.$user['reg_date'].'<br>';
+    echo '密碼提示:'.$user['passnote'].'<br>';
     echo 'E-mail:'.$user['email'].'<br>';
     ?>
     <button><a href="edit.php?id=<?=$user['id'];?>">編輯</a></button>
