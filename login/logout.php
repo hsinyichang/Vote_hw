@@ -5,5 +5,5 @@ unset($_SESSION['user']);
 
 
 
-header('location:index.php');
+header('location:../index.php');
 ?>
