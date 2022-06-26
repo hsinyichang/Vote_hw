@@ -1,6 +1,7 @@
 <?php
 //紀錄投票結果
 include_once "base.php";
+$user=find('users',['acc'=>$_SESSION['user']]);
 if (isset($_POST['opt'])) {
     if (is_array($_POST['opt'])) {
         foreach ($_POST['opt'] as $key => $opt) {
@@ -12,7 +13,7 @@ if (isset($_POST['opt'])) {
                 $subject['total']++;
                 save("subjects", $subject);
             }
-            $log = ['user_id' => (isset($_SESSION['user'])) ? $_SESSION['user'] : 0,
+            $log = ['user_id' => (isset($_SESSION['user'])) ? $user['id'] : 0,
                 'subject_id' => $subject['id'],
                 'option_id' => $option['id']];
             save("logs", $log);
@@ -26,7 +27,7 @@ if (isset($_POST['opt'])) {
         $subject = find("subjects", $option['subject_id']);
         $subject['total']++;
         save("subjects", $subject);
-        $log = ['user_id' => (isset($_SESSION['user'])) ? $_SESSION['user'] : 0,
+        $log = ['user_id' => (isset($_SESSION['user'])) ? $user['id'] : 0,
             'subject_id' => $subject['id'],
             'option_id' => $option['id']];
         save("logs", $log);

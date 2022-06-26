@@ -156,9 +156,9 @@ if(isset($_GET['filter'])){
         if($pages > 1){
             for($i=1;$i<=$pages;$i++){
     
-                echo "<a href='?p={$i}{$querystr}{$queryfilter}'>&nbsp;";
+                echo "<div><a href='?p={$i}{$querystr}{$queryfilter}'>&nbsp;";
                 echo $i;
-                echo "&nbsp;</a>";
+                echo "&nbsp;</a></div>";
             }
         }
         

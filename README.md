@@ -58,18 +58,6 @@
 
 ## 資料表設計
 ### 資料庫名稱:vote
-* users
-    |名稱|型態|預設值|A_I|備註|
-    |--|--|--|--|--|
-    |id|int(11)|--|true|序號|
-    |acc|varchar(12)|--|--|帳號|
-    |pw|varchar(16)|--|--|--|
-    |name|varchar(12)|--|--|--|
-    |birthday|date|--|--|--|
-    |gender|tinyint(1)|--|--|--|
-    |addr|varchar(64)|--|--|--|
-    |education|varchar(32)|--|--|--|
-    |reg_date|date|--|--|--|
 * admins
     |名稱|型態|預設值|A_I|備註|
     |--|--|--|--|--|
@@ -110,6 +98,19 @@
     |--|--|--|--|--|
     |id|int(11)|--|true|序號|
     |name|varchar(128)|--|--|分類名稱|
-
+* users
+    |名稱|型態|預設值|A_I|備註|
+    |--|--|--|--|--|
+    |id|int(11)|--|true|序號|
+    |acc|varchar(12)|--|--|帳號|
+    |pw|varchar(16)|--|--|--|
+    |name|varchar(12)|--|--|--|
+    |birthday|date|--|--|--|
+    |gender|tinyint(1)|--|--|性別|
+    |addr|varchar(64)|--|--|--|
+    |education|varchar(32)|--|--|--|
+    |reg_date|date|--|--|--|
+    |passnote|varchar(128)|--|--|--|
+    |email|varchar(256)|--|--|--|
 
 
