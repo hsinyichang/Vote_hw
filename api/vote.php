@@ -1,7 +1,7 @@
 <?php
 //紀錄投票結果
 include_once "base.php";
-$user=find('users',['acc'=>$_SESSION['user']]);
+$user=find('users',['acc'=>$_SESSION['user']]);//設變數user=先找到users資料表裡面的登入者(session)帳號
 if (isset($_POST['opt'])) {
     if (is_array($_POST['opt'])) {
         foreach ($_POST['opt'] as $key => $opt) {
@@ -13,7 +13,7 @@ if (isset($_POST['opt'])) {
                 $subject['total']++;
                 save("subjects", $subject);
             }
-            $log = ['user_id' => (isset($_SESSION['user'])) ? $user['id'] : 0,
+            $log = ['user_id' => (isset($_SESSION['user'])) ? $user['id'] : 0,//若有session 則為該帳號的id
                 'subject_id' => $subject['id'],
                 'option_id' => $option['id']];
             save("logs", $log);
