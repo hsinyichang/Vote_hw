@@ -12,6 +12,7 @@ include_once "./api/base.php";
     <!--使用拆分css檔案的方式來區分共用的css設定及前後台不同的css-->
     <link rel="stylesheet" href="./css/basic.css">
     <link rel="stylesheet" href="./css/back.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <div id="header">
@@ -21,6 +22,8 @@ include_once "./api/base.php";
 </div>
 <div id="container">
 <?php
+if(isset($_SESSION['admin'])){
+
 if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
     $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
 }                                    // 有GET到do這個參數↓
@@ -48,6 +51,16 @@ if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要inclu
         </ul>
 
     </div>
+
+<?php
+}
+?>
+<?php
+}else{
+?>
+<script>
+    alert("請先登入");
+</script>
 <?php
 }
 ?>
