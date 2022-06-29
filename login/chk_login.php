@@ -5,8 +5,6 @@ include "./connect.php";
 $acc=$_POST['acc'];
 $pw=md5($_POST['pw']);//編碼過的
 
-$default_user='admin';//自己預設帳號密碼
-$default_pw='0000';
 
 /* if($acc==資料表中的acc && $pw==資料表中的pw){
     //登入成功->會員中心
@@ -22,12 +20,8 @@ $chk=$pdo->query($sql)->fetchColumn();
 
 //if($acc==$user['acc'] && $pw==$user['pw']){
 if($chk){
-    // session_start();  在include裡面已經有了  所以這裡不用再打一次，以便簡化
     $_SESSION['user']=$acc;//存入帳號到session
-    $_SESSION['id']=$id;
     header("location:../index.php");
-}else if($acc=$default_user && $pw=$default_pw){
-    header("location:../back.php");
 }else{
     header("location:login.php?error=帳號或密碼錯誤");
 }
