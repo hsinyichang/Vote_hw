@@ -14,7 +14,7 @@ foreach($opts as $opt){
 ?>
     <div class="vote-item">
         <?php
-         if($subject['multiple']==0){
+         if($subject['multiple']==0){//抓到id值 判斷是單/複選 帶入checkbox 還是radio
         ?>
             <input type="radio" name="opt" value="<?=$opt['id'];?>">
         <?php
@@ -24,7 +24,7 @@ foreach($opts as $opt){
         <?php
         }
         ?>
-        <?=$opt['option'];?>
+        <?=$opt['option'];?> <!--帶入選項名稱-->
     </div>
 
 <?php

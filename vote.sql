@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-06-17 10:38:55
+-- 產生時間： 2022-06-29 08:41:04
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -30,9 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `id` int(11) UNSIGNED NOT NULL,
   `acc` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pw` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pw` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `admins`
+--
+
+INSERT INTO `admins` (`id`, `acc`, `pw`, `name`) VALUES
+(1, 'admin', '4A7D1ED414474E4033AC29CCB8653D9B', '管理者');
 
 -- --------------------------------------------------------
 
@@ -61,7 +68,17 @@ INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VAL
 (6, 0, 8, 38, '2022-06-17 08:35:20'),
 (7, 0, 8, 39, '2022-06-17 08:35:20'),
 (8, 0, 8, 39, '2022-06-17 08:35:27'),
-(9, 0, 8, 40, '2022-06-17 08:35:27');
+(9, 0, 8, 40, '2022-06-17 08:35:27'),
+(10, 0, 1, 4, '2022-06-25 14:35:53'),
+(11, 0, 1, 1, '2022-06-25 14:36:01'),
+(12, 0, 1, 2, '2022-06-26 06:12:34'),
+(13, 0, 2, 5, '2022-06-26 06:15:35'),
+(14, 0, 2, 6, '2022-06-26 07:04:48'),
+(15, 0, 2, 9, '2022-06-26 07:13:19'),
+(16, 0, 2, 7, '2022-06-26 07:40:48'),
+(17, 0, 2, 8, '2022-06-26 07:45:25'),
+(18, 4, 2, 5, '2022-06-26 08:07:36'),
+(19, 0, 9, 42, '2022-06-29 05:22:10');
 
 -- --------------------------------------------------------
 
@@ -81,15 +98,15 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
-(1, '吃便當', 1, 0),
-(2, '吃麥當勞', 1, 0),
+(1, '吃便當', 1, 1),
+(2, '吃麥當勞', 1, 1),
 (3, '吃肯德雞', 1, 1),
-(4, '吃豬腳飯', 1, 0),
-(5, '美而美', 2, 0),
-(6, '7-11', 2, 0),
-(7, 'qBurger', 2, 0),
-(8, '永和豆漿', 2, 0),
-(9, '全家', 2, 0),
+(4, '吃豬腳飯', 1, 1),
+(5, '美而美', 2, 2),
+(6, '7-11', 2, 1),
+(7, 'qBurger', 2, 1),
+(8, '永和豆漿', 2, 2),
+(9, '全家', 2, 1),
 (10, '穿西裝', 3, 0),
 (11, '穿洋裝', 3, 0),
 (12, '穿吊嘎', 3, 0),
@@ -99,7 +116,9 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (37, '陳X中', 8, 1),
 (38, '趙X中', 8, 1),
 (39, '李X中', 8, 4),
-(40, '王X中', 8, 2);
+(40, '王X中', 8, 2),
+(41, '要', 9, 0),
+(42, '不要', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -123,12 +142,13 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
-(1, '今天晚餐吃什麼?', 1, 0, 1, '2022-06-13', '2022-06-23', 21),
-(2, '明天早餐吃飯', 1, 0, 1, '2022-06-13', '2022-06-23', 0),
+(1, '今天晚餐吃什麼?', 1, 0, 1, '2022-06-13', '2022-06-23', 24),
+(2, '明天早餐吃飯', 1, 0, 1, '2022-06-13', '2022-06-23', 7),
 (3, '明天上課穿什麼?', 1, 1, 1, '2022-06-13', '2022-06-23', 10),
 (6, 'aaaaaaa', 1, 0, 1, '2022-06-17', '2022-06-27', 0),
-(7, 'CCCC', 1, 1, 1, '2022-06-17', '2022-06-16', 0),
-(8, '台北市長候選,你會選誰', 1, 1, 1, '2022-06-17', '2022-06-27', 4);
+(7, 'CCCC', 1, 1, 1, '2022-06-17', '2022-06-27', 0),
+(8, '台北市長候選,你會選誰', 2, 1, 1, '2022-06-17', '2022-06-27', 4),
+(9, '是否要實體上課', 1, 0, 1, '2022-06-29', '2022-07-09', 1);
 
 -- --------------------------------------------------------
 
@@ -141,6 +161,14 @@ CREATE TABLE `types` (
   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- 傾印資料表的資料 `types`
+--
+
+INSERT INTO `types` (`id`, `name`) VALUES
+(1, '生活'),
+(2, '政治');
+
 -- --------------------------------------------------------
 
 --
@@ -150,14 +178,23 @@ CREATE TABLE `types` (
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `acc` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pw` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pw` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
   `gender` tinyint(1) UNSIGNED NOT NULL,
   `addr` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reg_date` date NOT NULL
+  `reg_date` date NOT NULL,
+  `passnote` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `users`
+--
+
+INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `addr`, `education`, `reg_date`, `passnote`, `email`) VALUES
+(2, 'gina', '81dc9bdb52d04dc20036dbd8313ed055', '欣儀', '1992-06-15', 0, '中榮街104巷9號1樓', '大學', '2022-06-26', '1234', 'f1233772002@gmail.com');
 
 --
 -- 已傾印資料表的索引
@@ -207,37 +244,37 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
