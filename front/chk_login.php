@@ -23,6 +23,6 @@ if($chk){
     $_SESSION['user']=$acc;//存入帳號到session
     header("location:../index.php");
 }else{
-    header("location:login.php?error=帳號或密碼錯誤");
+    header("location:?do=login&error=帳號或密碼錯誤");
 }
 ?>
