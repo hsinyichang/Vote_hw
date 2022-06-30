@@ -104,7 +104,7 @@ if(isset($_GET['error'])) {
     echo "<h2 style='color:red;text-align:center'>{$_GET['error']}</h2>";
 }
     ?>
-    <form action="../login/chk_login.php" method="post">
+    <form action='?do=chk_login' method="post">
         <table>
             <tr>        
                 <td class="td2">
