@@ -29,5 +29,16 @@ $opts=all("options",['subject_id'=>$_GET['id']]);
         }
         ?>
     </table>
-    <button class="btn btn-info" onclick="location.href='?do=vote&id=<?=$_GET['id'];?>'">我要投票</button>
+
+    <?php
+    if(isset($_SESSION['user'])){
+    ?>
+        <button class="btn btn-info" onclick="location.href='?do=vote&id=<?=$_GET['id'];?>'">我要投票</button>
+    <?php
+    }else{
+    ?>
+    若要投票記得登入
+    <?php    
+    }
+    ?>
 </div>
