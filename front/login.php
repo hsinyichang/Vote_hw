@@ -117,7 +117,7 @@ if(isset($_GET['error'])) {
                 </td>
             </tr>
             <tr>
-                <td class="td3"><a href="register.php">尚未註冊</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgot.php">忘記密碼</a></td>
+                <td class="td3"><a href="?do=register">尚未註冊</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="?do=forgot">忘記密碼</a></td>
                 
             </tr>
         </table>
