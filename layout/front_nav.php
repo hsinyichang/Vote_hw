@@ -5,11 +5,13 @@
         // include_once "connect.php";/*放到程式開頭，因裡面有session start */
         if(isset($_SESSION['user'])){/*這裡判斷是否有session為登出或登入 */
         ?>
-    <div><a href="../login/member_center.php"><i class="fa-solid fa-circle-user"></i>會員中心</a><a href="../login/logout.php"><i class="fa-solid fa-circle-user"></i>登出</a></div>
+    <div><a href='?do=member_center'><i class="fa-solid fa-circle-user"></i>會員中心</a>
+         <a href='?do=logout'><i class="fa-solid fa-circle-user"></i>登出</a>
+    </div>
         <?php
         }else{
         ?>
-    <div><a href="../login/login.php"><i class="fa-solid fa-circle-user"></i>登入</a></div>
+    <div><a href='?do=login'><i class="fa-solid fa-circle-user"></i>登入</a></div>
         <?php    
         }
         ?>
@@ -25,4 +27,4 @@
         }
         ?>
         
-    </nav>
+</nav>
