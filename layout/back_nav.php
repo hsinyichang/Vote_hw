@@ -4,7 +4,7 @@
         <div><a href="?do=admin_type"><i class="fa-solid fa-database"></i>分類管理</a></div>
         <?php if(isset($_SESSION['admin'])){
         ?>
-            <div><a href="../login/logout.php"><i class="fa-solid fa-circle-user"></i>登出</a></div>
+            <div><a href="../backlogin/logout.php"><i class="fa-solid fa-circle-user"></i>登出</a></div>
         <?php
         }else{
         ?>
