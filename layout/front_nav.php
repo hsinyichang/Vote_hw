@@ -20,7 +20,7 @@
         // include_once "connect.php";/*放到程式開頭，因裡面有session start */
         if(!isset($_SESSION['user'])){/*這裡判斷是否有session為登出或登入 */
         ?>
-    <div><a href="../backlogin/login.php"><i class="fa-solid fa-circle-user"></i>後台管理</a></div>
+    <div><a href="../back.php"><i class="fa-solid fa-circle-user"></i>後台管理</a></div>
         <?php
         }else{
            
