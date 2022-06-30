@@ -12,7 +12,7 @@ $user=$pdo->query($sql)->fetch();
 if(empty($user)){
     echo "查無此帳號";
 }else{
-   echo "你當初提供的密碼提示為:".$user['passnote'];
+   echo "請聯絡該管理者<br>";
 }
 
 ?>

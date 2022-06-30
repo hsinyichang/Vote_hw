@@ -9,14 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
     <style>
-        *{
-            box-sizing: border-box;
-        }
+        
         body{
-            font-family: '華康粗圓體';
-            background: #43C6AC;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background-color: lightpink;
 
         }
         p{
@@ -26,7 +21,7 @@
             
             
         }
-        div{
+        .logindiv{
             
             margin: auto;
             width:380px;
@@ -53,8 +48,8 @@
         font-size:22px;    /* 更改placeholder的字體大小  */
         text-align: left;
         }
-        table td{
-            padding:1rem;
+        .logintable td{
+            padding:1.5rem;
             
         }
         .td1{
@@ -98,15 +93,15 @@
     </style>
 </head>
 <body>
-    <div>
-        <p><i class="fa-regular fa-bell" style="color:yellow ;"></i>&nbsp;會員登入</p>
+    <div class="logindiv">
+        <p><i class="fa-regular fa-bell" style="color:yellow ;"></i>&nbsp;管理者登入</p>
     <?php
 
 if(isset($_GET['error'])) {
     echo "<h2 style='color:red;text-align:center'>{$_GET['error']}</h2>";
 }
     ?>
-    <form action="./chk_login.php" method="post">
+    <form action="?do=chk_login" method="post">
         <table>
             <tr>        
                 <td class="td2">
@@ -119,7 +114,7 @@ if(isset($_GET['error'])) {
                 </td>
             </tr>
             <tr>
-                <td class="td3"><a href="register.php">尚未註冊</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgot.php">忘記密碼</a></td>
+                <td class="td3">&nbsp;&nbsp;&nbsp;<a href="?do=forgot">忘記密碼</a></td>
                 
             </tr>
         </table>
