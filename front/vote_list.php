@@ -136,13 +136,17 @@ if(isset($_GET['filter'])){  //分類
                 echo "<div class='text-center'>";
                     $today=strtotime("now");
                     $end=strtotime($subject['end']);
+                    $start=strtotime($subject['start']);
+                    if($start-$today>0){
+                        echo "投票尚未開始";
+                    }else{
                     if(($end-$today)>0){
-                        $remain=floor(($end-$today)/(60*60*24));
+                        $remain=ceil(($end-$today)/(60*60*24));
                         echo "倒數".$remain."天結束";
                     }else{
                         echo "<span style='color:grey'>投票已結束</span>";
                     }
-                
+                }
                 echo "</div>";
                 echo "<div class='text-center'>{$subject['total']}</div>";
                 echo "</li>";

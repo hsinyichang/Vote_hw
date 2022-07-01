@@ -31,9 +31,23 @@ $opts=all("options",['subject_id'=>$_GET['id']]);
     </table>
 
     <?php
+    $today=strtotime("now");
+    $end=strtotime($subject['end']);
+    $start=strtotime($subject['start']);
     if(isset($_SESSION['user'])){
+    
+    if($start-$today>0){
+    //尚未開始就不要顯示按鈕給使用者投票
+    }else{
+    if(($end-$today)>0){
     ?>
         <button class="btn btn-info" onclick="location.href='?do=vote&id=<?=$_GET['id'];?>'">我要投票</button>
+    <?php
+    }else{
+    //投票已結束也不要顯示按鈕
+    }
+    }
+    ?>
     <?php
     }else{
     ?>
@@ -42,3 +56,4 @@ $opts=all("options",['subject_id'=>$_GET['id']]);
     }
     ?>
 </div>
+
