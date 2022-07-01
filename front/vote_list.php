@@ -111,7 +111,7 @@ if(isset($_GET['filter'])){  //分類
             }
 
             $total=math('subjects','count','id',$filter);
-            $div=3;
+            $div=5;
             $pages=ceil($total/$div);
             $now=isset($_GET['p'])?$_GET['p']:1;
             $start=($now-1)*$div;
