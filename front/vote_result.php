@@ -14,14 +14,15 @@ $opts=all("options",['subject_id'=>$_GET['id']]);
         <?php 
         foreach($opts as $opt){
             $total=($subject['total']==0)?1:$subject['total'];
-            $rate=$opt['total']/$total;
+            $rate= $opt['total']/$total;
+            $result=floor($rate*10000)/10000*100;
         ?>
         <tr>
             <td><?=$opt['option'];?></td>
             <td><?=$opt['total'];?></td>
-            <td>
-                <div style="display:inline-block;height:24px;background:skyblue;width:<?=300*$rate;?>px;"></div>
-                <?=($rate*100) . "%";?>
+            <td style="width: 420px;">
+                <div style="display:inline-block;height:24px;background:skyblue;width:<?=400*$rate;?>px;"></div>
+                <?=$result . "%";?>
             </td>
         </tr>
         <?php 
