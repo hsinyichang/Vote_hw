@@ -20,6 +20,7 @@ footer{
     position: fixed;
     bottom: 0px;
     z-index: 1;
+    padding-top: 8px;
 }
 
 /*--common components---*/
