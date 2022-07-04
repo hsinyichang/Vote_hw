@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>編輯會員資料</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         *{
             box-sizing: border-box;
@@ -45,7 +47,7 @@
         </tr>
         <tr>
             <td>密碼</td>
-            <td><input type="password" name="pw" value="<?=$user['pw'];?>"></td>
+            <td><input type="password" name="pw" class="iconpw" value="<?=$user['pw'];?>"><i class="fa fa-eye" id=togglepassword></i></td>
         </tr>
         <tr>
             <td>姓名</td>
@@ -82,6 +84,22 @@
         <input type="submit" value="送出"><input type="reset" value="重置">
     </div>
 </form>
+<script>
+        //小圖示顯示密碼
+        //抓小圖示id
+        const togglepassword=document.querySelector("#togglepassword");
+        //抓輸入密碼id
+        const pw=document.querySelector(".iconpw");
+        //監聽事件
+        togglepassword.addEventListener('click',function(){
+            //判斷password 還是text
+            const type=pw.getAttribute('type')==='password'?'text':'password';
+            //設定
+            pw.setAttribute('type',type);
+            this.classList.toggle('fa-eye-slash');
+            
+        });
+    </script>
 </div>
 </body>
 </html>
