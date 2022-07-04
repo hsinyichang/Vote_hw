@@ -47,7 +47,7 @@
         </tr>
         <tr>
             <td>密碼</td>
-            <td><input type="password" name="pw" class="iconpw" value="<?=$user['pw'];?>"><i class="fa fa-eye" id=togglepassword></i></td>
+            <td><input type="password" name="pw" class="iconpw" value="<?=base64_decode($user['pw']);?>"><i class="fa fa-eye" id=togglepassword></i></td>
         </tr>
         <tr>
             <td>姓名</td>

@@ -1,6 +1,6 @@
 <?php
 include_once "connect.php";
-$pw=md5($_POST['pw']);
+$pw=base64_encode($_POST['pw']);
 
 $sql="UPDATE `users` 
         SET `pw`='{$pw}',

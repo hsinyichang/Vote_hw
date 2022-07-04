@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
     <style>
-        *{
-            box-sizing: border-box;
+        .memberdiv{
+            width: 40%;
+            margin: 0 auto;
+            padding-top: 10px;
         }
     </style>
+    
 </head>
 <body>
-    <div>
+    <div class="memberdiv">
     
-    <h1>會員中心</h1>
+    <h1 style="text-align:center ;">會員中心</h1>
     <?php
     include "connect.php";//session_start()已寫在裡面了
     ?>

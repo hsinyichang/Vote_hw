@@ -3,7 +3,7 @@
 
 include "connect.php";
 $acc=$_POST['acc'];
-$pw=md5($_POST['pw']);//編碼過的
+$pw=base64_encode($_POST['pw']);//編碼過的
 
 
 /* if($acc==資料表中的acc && $pw==資料表中的pw){
