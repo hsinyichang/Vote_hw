@@ -26,7 +26,7 @@ if(isset($_GET['do'])){ //在vote_list頁面設do變數125行開始
 if(isset($file) && file_exists($file)){
     include $file;
 }else{
-    include "./front/vote_form.php";
+    include "./front/vote_index.php";
 }
 ?>
 </div>
