@@ -9,8 +9,8 @@ $subject=$_POST['subject'];
 $add_subject=[
     'subject'=>$subject,
     'type_id'=>$_POST['types'],
-    'start'=>date("Y-m-d"),
-    'end'=>date("Y-m-d",strtotime("+10 days")),
+    'start'=>$_POST['start'],
+    'end'=>$_POST['end'],
 ];
 
 //使用save()函式把投票主題存至資料表subjects中
