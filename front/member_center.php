@@ -28,21 +28,44 @@
     $sql="SELECT * FROM `users` where acc='{$_SESSION['user']}'";
     $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     echo '<hr>';
-    echo 'ID:'.$user['id'].'<br>';
-    echo '帳號:'.$user['acc'].'<br>';
-    echo '密碼:******<br>';
-    echo '姓名:'.$user['name'].'<br>';
-    echo '生日:'.$user['birthday'].'<br>';
+    echo '<table>';
+    echo '<tr>';
+    echo '<td>ID:</td><td>'.$user['id'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>帳號:</td><td>'.$user['acc'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>密碼:</td><td>******</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>姓名:</td><td>'.$user['name'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>生日:</td><td>'.$user['birthday'].'</td>';
+    echo '<tr>';
     if($user['gender']==0){
-        echo '性別:女'.'<br>';
+        echo '<td>性別:</td><td>女</td>';
     }else{
-        echo '性別:男'.'<br>';
+        echo '<td>性別:</td><td>男</td>';
     }
-    echo '地址:'.$user['addr'].'<br>';
-    echo '教育程度:'.$user['education'].'<br>';
-    echo '註冊時間:'.$user['reg_date'].'<br>';
-    echo '密碼提示:'.$user['passnote'].'<br>';
-    echo 'E-mail:'.$user['email'].'<br>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>地址:</td><td>'.$user['addr'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>教育程度:</td><td>'.$user['education'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>註冊時間:</td><td>'.$user['reg_date'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>密碼提示:</td><td>'.$user['passnote'].'</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td>E-mail:</td><td>'.$user['email'].'</td>';
+    echo '</tr>';
+    echo '</table>';
     ?>
     <button type="button" onclick="location.href='?do=edit&id=<?=$user['id'];?>'">編輯</button>
 
