@@ -16,8 +16,8 @@ if(isset($_GET['filter'])){  //分類
 
 ?>
     <div class="type">
-        <label for="types">分類</label>
-        <select name="types" id="types" onchange="location.href=`?filter=${this.value}<?=$p;?><?=$querystr;?>`">
+        <label for="types">分類：</label>
+        <select name="types" class="pretty-select" id="types" onchange="location.href=`?filter=${this.value}<?=$p;?><?=$querystr;?>`">
             <option value="0">全部</option>
         <?php
             $types=all("types");
