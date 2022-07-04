@@ -160,7 +160,7 @@ if(isset($_GET['filter'])){  //分類
         if($pages > 1){
             for($i=1;$i<=$pages;$i++){
     
-                echo "<div><a href='?p={$i}{$querystr}{$queryfilter}'>&nbsp;";
+                echo "<div><a href='?do=vote_list&p={$i}{$querystr}{$queryfilter}'>&nbsp;";
                 echo $i;
                 echo "&nbsp;</a></div>";
             }
