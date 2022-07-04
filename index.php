@@ -20,13 +20,13 @@
 </div>
 <div id="container">
    <?php
-if(isset($_GET['do'])){
+if(isset($_GET['do'])){ //在vote_list頁面設do變數125行開始
     $file='./front/'.$_GET['do'].".php";
 }
 if(isset($file) && file_exists($file)){
     include $file;
 }else{
-    include "./front/vote_list.php";
+    include "./front/vote_form.php";
 }
 ?>
 </div>
