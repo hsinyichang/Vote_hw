@@ -57,7 +57,7 @@
         </tbody>
     </table>
     
-    <input type="submit" value="新增">
+    <input type="submit" value="完成新增">
     
     </form>
     
