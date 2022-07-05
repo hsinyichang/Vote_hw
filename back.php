@@ -97,13 +97,14 @@ if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要inclu
 ?>
 <?php
 }else{
-    if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
-        $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
-    }                                    // 有GET到do這個參數↓
-        if(isset($file) && file_exists($file)){//先檢查是否有file此變數且此檔案是否存在
-            include $file;// 則include 變數file這個檔案，直接把此檔案放進來這個頁面
-        }else{
-}
+//     if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
+//         $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
+//     }                                    // 有GET到do這個參數↓
+//         if(isset($file) && file_exists($file)){//先檢查是否有file此變數且此檔案是否存在
+//             include $file;// 則include 變數file這個檔案，直接把此檔案放進來這個頁面
+//         }else{
+// }
+include "./back/login.php";
 }
 ?>
 </div>
