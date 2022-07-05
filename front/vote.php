@@ -7,6 +7,7 @@ $opts=all('options',['subject_id'=>$_GET['id']]);
 /* dd($subject);
 dd($opts); */
 ?>
+<div>
 <h1><?=$subject['subject'];?></h1>
 <form action="./api/vote.php" method="post">
 <?php
@@ -35,3 +36,4 @@ foreach($opts as $opt){
 <input type="reset" value="重置">
 <input type="button" value="放棄" onclick="location.href='index.php'">
 </form>
+</div>
