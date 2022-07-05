@@ -23,8 +23,6 @@ include_once "./api/base.php";
 </div>
 <div id="container">
 <?php
-if(isset($_SESSION['admin'])){
-
 if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
     $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
 }                                    // 有GET到do這個參數↓
@@ -42,7 +40,13 @@ if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要inclu
             <td>投票期間：</td>
             <td>剩餘天數：</td>
             <td id="id2">投票人數：</td>
+            <?php
+            if(isset($_SESSION['admin'])){
+              ?>
             <td>操作：</td>
+            <?php
+            }
+            ?>
         </tr>
         <?php
             //使用all()函式來取得資料表subjects中的所有資料，請參考base.php中的函式all($table,...$arg)
@@ -80,11 +84,13 @@ if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要inclu
                 echo "</td>";
     
                 echo "<td class='text-center'>{$subject['total']}</td>";//投票總人數
-    
+                
+                if(isset($_SESSION['admin'])){
                 echo "<td class='text-center'>";//操作區
                 echo "<a class='edit' href='?do=edit&id={$subject['id']}'>編輯</a>";
                 echo "<a class='del' href='?do=del&id={$subject['id']}'>刪除</a>";
                 echo "</td>";
+                }
                 echo "</tr>";
             }
         ?>
@@ -95,18 +101,7 @@ if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要inclu
 <?php
 }
 ?>
-<?php
-}else{
-//     if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
-//         $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
-//     }                                    // 有GET到do這個參數↓
-//         if(isset($file) && file_exists($file)){//先檢查是否有file此變數且此檔案是否存在
-//             include $file;// 則include 變數file這個檔案，直接把此檔案放進來這個頁面
-//         }else{
-// }
-include "./back/login.php";
-}
-?>
+
 </div>
 <div>
     <?php include "./layout/footer.php";?>
