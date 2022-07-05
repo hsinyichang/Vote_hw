@@ -8,7 +8,7 @@
         <?php
         }else{
         ?>
-        <!-- <div><a href="?do=login"><i class="fa-solid fa-circle-user"></i>登入</a></div> -->
+        <div><a href="?do=login"><i class="fa-solid fa-circle-user"></i>登入</a></div>
     <?php
     }
     ?>
