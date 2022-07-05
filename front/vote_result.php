@@ -3,11 +3,11 @@ $subject=find("subjects",$_GET['id']);
 $opts=all("options",['subject_id'=>$_GET['id']]);
 $pdo=pdo();
 $subjectid=$_GET['id'];
+// ---------登入執行(避免重複投票)-----------
+if (isset($_SESSION['user'])) {//如果有登入的話就執行這行
 $sql="SELECT * FROM `users` where acc='{$_SESSION['user']}'";
 $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
-if (isset($_SESSION['user'])) {
     $u = $uid['id'];
-}
 
 $log = "SELECT `subjects` . * , `logs` . `user_id` 
     FROM `subjects`,`logs` 
@@ -20,6 +20,8 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
             header("location:?do=vote_result1&id={$subject['id']}");
         }
     }
+}
+// ---------登入執行-----------
 ?>
 <h1 class="text-center"><?=$subject['subject'];?></h1>
 <div style="width:600px;margin:auto">
@@ -54,26 +56,29 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
     $today=strtotime("now");
     $end=strtotime($subject['end']);
     $start=strtotime($subject['start']);
-    if(isset($_SESSION['user'])){
     
-    if($start-$today>0){
-    //尚未開始就不要顯示按鈕給使用者投票
-    }else{
-    if(($end-$today)>0){
+    if($start-$today>0){//尚未開始就不要顯示按鈕給使用者投票
+    ?>
+    尚未開始
+    <?php    
+    }else{//開始投票
+        if(isset($_SESSION['user'])){//有登入
+            if(($end-$today)>0){//還沒結束
     ?>
         <button class="btn btn-info" onclick="location.href='?do=vote&id=<?=$_GET['id'];?>'">我要投票</button>
-    <?php
-    }else{
-    //投票已結束也不要顯示按鈕
-    }
-    }
-    ?>
-    <?php
-    }else{
-    ?>
-    若要投票記得登入
     <?php    
+            }else{//結束
+                ?>
+                投票結束
+                <?php
+            }
+        }else{//沒登入
+            ?>
+            請登入投票
+            <?php
+        }
     }
     ?>
+    
 </div>
 

@@ -15,6 +15,7 @@ if(isset($_GET['filter'])){  //分類
 
 
 ?>
+<div>
     <div class="type">
         <label for="types">分類：</label>
         <select name="types" class="pretty-select" id="types" onchange="location.href=`?do=vote_list&filter=${this.value}&p=1<?=$querystr;?>`">
@@ -30,51 +31,50 @@ if(isset($_GET['filter'])){  //分類
             ?>
         </select>
     </div>
-<div>
         <ul class='list'>
             <li class='list-header'>
                 <div>投票主題</div>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題</a></div>
+                <div><a href="?do=vote_list&order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題</a></div>
+                <div><a href="?do=vote_list&order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間</a></div>
+                <div><a href="?do=vote_list&order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間</a></div>   
+                <div><a href="?do=vote_list&order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
                 <?php
                 }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數</a></div> 
+                    <div><a href="?do=vote_list&order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
                 <?php 
                 }else{
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數</a></div>
+                    <div><a href="?do=vote_list&order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                     }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href='?do=vote_list&order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數</a></div>
+                <div><a href='?do=vote_list&order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href='?do=vote_list&order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數</a></div>
+                <div><a href='?do=vote_list&order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }
                 ?>
