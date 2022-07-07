@@ -16,4 +16,4 @@ if(empty($user)){
 }
 
 ?>
-<a href="../index.php">回首頁</a><a href="./login.php">重新登入</a>
+<a href="../back.php">回首頁</a><a href="?do=login">重新登入</a>
