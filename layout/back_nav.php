@@ -12,6 +12,6 @@
     <?php
     }
     ?>
-    <div><a href="../index.php"><i class="fa-solid fa-circle-user"></i>前台登入</a></div>
+    <div><a href="./index.php"><i class="fa-solid fa-circle-user"></i>前台登入</a></div>
 
         </nav>
