@@ -5,5 +5,5 @@ unset($_SESSION['admin']);
 
 
 
-header('location:../index.php');
+header('location:../back.php');
 ?>
