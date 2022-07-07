@@ -75,8 +75,11 @@ if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要inclu
                     echo "投票尚未開始";
                 }else{
                   if(($end-$today)>0){//如果投票還在進行
-                    $remain=floor(($end-$today)/(60*60*24));
-                    echo "倒數".$remain."天結束";
+                    $remain=ceil(($end-$today)/(60*60*24));
+                    if($remain==0){
+                      echo "今天午夜截止";
+                    }else{
+                    echo "倒數".$remain."天結束";}
                   }else{//如果投票已經截止
                     echo "<span style='color:grey;'>投票已截止</span>";
                   }
