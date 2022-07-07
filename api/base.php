@@ -6,6 +6,10 @@ function pdo(){
     $dsn="mysql:host=localhost;charset=utf8;dbname=vote";
     return new PDO($dsn,'root','');
 }
+// function pdo(){
+//     $dsn="mysql:host=localhost;charset=utf8;dbname=s1110210";
+//     return new PDO($dsn,'s1110210','s1110210');
+// }
 /**
  * $table - 資料表名稱 字串型式
  * ...$arg - 參數型態
