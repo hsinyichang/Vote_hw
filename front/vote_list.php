@@ -142,7 +142,10 @@ if(isset($_GET['filter'])){  //分類
                     }else{
                     if(($end-$today)>0){
                         $remain=ceil(($end-$today)/(60*60*24));
-                        echo "倒數".$remain."天結束";
+                    if($remain==0){
+                      echo "今天午夜截止";
+                    }else{
+                    echo "倒數".$remain."天結束";}
                     }else{
                         echo "<span style='color:grey'>投票已結束</span>";
                     }
