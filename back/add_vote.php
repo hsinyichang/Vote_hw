@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="../api/add_vote.php" method="post">
     <table>
         <tr>
             <td>
@@ -59,7 +59,7 @@
     
     <input type="submit" value="完成新增">
     
-    </form>
+</form>
     
     <script>
         // 動態新增欄位id編號預設值
