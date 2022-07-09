@@ -22,7 +22,7 @@
                 <label for="subject">投票主題：</label>
             </td>
             <td>
-                <input type="text" name="subject" id="subject">
+                <input type="text" name="subject" id="subject" required>
             </td>
         </tr>
         <tr>
@@ -30,7 +30,7 @@
                 <label for="">單/複選：</label>
             </td>
             <td>
-                <input type="radio" name="multiple" value="0" checked>
+                <input type="radio" name="multiple" value="0" checked >
                 <label>單選</label>
                 <input type="radio" name="multiple" value="1" >
                 <label>複選</label>
@@ -38,11 +38,11 @@
         </tr>
         <tr>
             <td>開始時間：</td>
-            <td><input type="date" name="start"></td>
+            <td><input type="date" name="start" required></td>
         </tr>
         <tr>
             <td>結束時間：</td>
-            <td><input type="date" name="end"></td>
+            <td><input type="date" name="end" required></td>
         </tr>
         <!-- 使用表格群組tbody -->
         <tbody id="options">
@@ -51,7 +51,7 @@
                     <label>選項:</label>
                 </td>
                 <td>
-                    <input type="text" name="option[]"><input type="button" value="新增選項" id="addvote">
+                    <input type="text" name="option[]"><input type="button" value="新增選項" id="addvote" required>
                 </td>
             </tr>
         </tbody>
@@ -67,7 +67,7 @@
 
         // 動態新增欄位
         $("#addvote").click(function () {
-            $("#options").append('<tr id="tr'+trId+'"><td><label>選項:</label></td><td><input type="text" name="option[]"><button type="button" onclick="delbtn(' + trId + ')">刪除</button></td></tr>');
+            $("#options").append('<tr id="tr'+trId+'"><td><label>選項:</label></td><td><input type="text" name="option[]" required><button type="button" onclick="delbtn(' + trId + ')">刪除</button></td></tr>');
             trId++;
         });
         
