@@ -102,7 +102,7 @@
 </head>
 <body>
     <div class="login">
-        <p><i class="fa-regular fa-bell" style="color:yellow ;"></i>&nbsp;會員登入</p>
+        <p><i class="fa-regular fa-bell" style="color:orange ;"></i>&nbsp;會員登入</p>
     <?php
 
 if(isset($_GET['error'])) {
@@ -113,7 +113,7 @@ if(isset($_GET['error'])) {
         <table>
             <tr>        
                 <td class="td2">
-            　　<input type="text" name="acc" id="" placeholder="帳號" required title="請填寫帳號">
+            　　<input type="text" name="acc" id="acc" placeholder="帳號" required title="請填寫帳號">
                 </td>
             </tr>
             <tr>
@@ -122,7 +122,7 @@ if(isset($_GET['error'])) {
                 </td>
             </tr>
             <tr>
-                <td class="td3"><a href="?do=register">尚未註冊</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="?do=forgot">忘記密碼</a></td>
+                <td class="td3"><a href="?do=register">尚未註冊</a>　　　　　　　<a href="?do=forgot">忘記密碼</a></td>
                 
             </tr>
             <tr>
@@ -131,7 +131,7 @@ if(isset($_GET['error'])) {
             </tr>
         </table>
     </form>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         //小圖示顯示密碼
         //抓小圖示id
@@ -147,6 +147,20 @@ if(isset($_GET['error'])) {
             this.classList.toggle('fa-eye-slash');
             
         });
+
+        $('#acc').focus(function(){
+            $('#acc').css("background","#FDFBE6");
+        });
+        $('#acc').blur(function(){
+            $('#acc').css("background","");
+        });
+        $('#iconpw').focus(function(){
+            $('#iconpw').css("background","#FDF7E6");
+        });
+        $('#iconpw').blur(function(){
+            $('#iconpw').css("background","");
+        });
+
     </script>
 </div>
 </body>

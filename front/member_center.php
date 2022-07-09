@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.css"
+        integrity="sha512-CJ5goVzT/8VLx0FE2KJwDxA7C6gVMkIGKDx31a84D7P4V3lOVJlGUhC2mEqmMHOFotYv4O0nqAOD0sEzsaLMBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .memberdiv{
             width: 40%;
@@ -74,7 +77,21 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <a class="remove" href='remove_acc.php?id=<?=$user['id'];?>'>移除個人資料</a>
+    <a class="remove" href="javascript:
+            swal.fire({
+            title:'確定要刪除帳號?',
+            icon:'warning',
+            text:'刪除就回不去了~~',
+            showCancelButton: true,
+            confirmButtonText: '刪除',
+            cancelButtonText: '取消',
+            }).then((result)=>{
+                if(result.isConfirmed){
+                window.location.href='?do=remove_acc&id=<?=$user['id'];?>';
+                }else if(result.dismiss === Swal.DismissReason.cancel){
+                    
+                }
+            });">移除個人資料</a>
 
     <!--
      
@@ -87,5 +104,10 @@
     <button onclick="location.href='edit.php?id=<?=$user['id'];?>'">編輯</button>  第三種
     -->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"
+        integrity="sha512-Kyb4n9EVHqUml4QZsvtNk6NDNGO3+Ta1757DSJqpxe7uJlHX1dgpQ6Sk77OGoYA4zl7QXcOK1AlWf8P61lSLfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
 </body>
 </html>

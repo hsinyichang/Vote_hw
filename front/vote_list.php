@@ -134,15 +134,15 @@ if(isset($_GET['filter'])){  //分類
                 echo $subject['start']. " ~ ".$subject['end'];
                 echo "</div>";
                 echo "<div class='text-center'>";
-                    $today=strtotime("now");
+                    $today=strtotime(date("Y-m-d"));
                     $end=strtotime($subject['end']);
                     $start=strtotime($subject['start']);
                     if($start-$today>0){
                         echo "投票尚未開始";
                     }else{
-                    if(($end-$today)>0){
+                    if(($end-$today)>=0){
                         $remain=ceil(($end-$today)/(60*60*24));
-                    if($remain==0){
+                    if($end==$today){
                       echo "今天午夜截止";
                     }else{
                     echo "倒數".$remain."天結束";}
@@ -172,3 +172,10 @@ if(isset($_GET['filter'])){  //分類
         ?>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('.list-items').odd().css('color','#E87AFA');
+        $('.list-items').even().css('color','#F78872');
+    </script>

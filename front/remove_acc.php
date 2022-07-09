@@ -8,6 +8,6 @@ $pdo->exec($sql);
 
 unset($_SESSION['user']); //移除帳號的session
 
-header('location:index.php');
+header('location:./index.php');
 
 ?>

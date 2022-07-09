@@ -41,19 +41,19 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
         <tr>
             <td><?=$opt['option'];?></td>
             <td><?=$opt['total'];?></td>
-            <td style="width: 420px;">
-                <div style="display:inline-block;height:24px;background:skyblue;width:<?=400*$rate;?>px;"></div>
-                <?=$result . "%";?>
+            <td style="width: 300px;">
+                <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:<?=$result . "%";?>" aria-valuenow="<?=$result;?>" aria-valuemin="0" aria-valuemax="100"><?=$result . "%";?></div>
+                </div>
             </td>
         </tr>
-        <?php 
-
+        <?php        
         }
         ?>
     </table>
 
     <?php
-    $today=strtotime("now");
+    $today=strtotime(date("Y-m-d"));
     $end=strtotime($subject['end']);
     $start=strtotime($subject['start']);
     
@@ -63,7 +63,7 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
     <?php    
     }else{//開始投票
         if(isset($_SESSION['user'])){//有登入
-            if(($end-$today)>0){//還沒結束
+            if(($end-$today)>=0){//還沒結束
     ?>
         <button class="btn btn-info" onclick="location.href='?do=vote&id=<?=$_GET['id'];?>'">我要投票</button>
     <?php    
