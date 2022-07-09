@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>投票首頁</title>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -16,9 +16,9 @@
 
     /* border: solid 1px gray; */
     margin: 0 auto;
-    width: 80%;
+    width: 110vh;
     padding-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 .two{
     text-align: center;
@@ -32,21 +32,58 @@
 }
 .three{
     display: flex;
-    
+    justify-content: space-evenly;
 }
 .cont:hover{
     animation:pulse;
     animation-duration:0.5s ;
 }
 .cont{
-    width: calc(100% / 3);
-    border: 1px solid black;
-    margin-left: 10px;
+    width: 278px;
+    height: 135px;
+    border: 1px solid #FEEBFA;
+    background-color:rgba(249 , 199, 238, 0.4);
+    /* margin-left: 65px; */
+    box-shadow: 5px 5px 6px #F4DDFC;
+    padding: 5px 10px 0 10px;
+    border-radius: 30px;
+
 }
 .poptitle{
     text-align: center;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px gray;
+    font-size: 18px;
 }
-
+button{
+    /* position: relative;
+    left: 40%; */
+    width: 62px;
+    height:22px;
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 14px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #FFA6E0;
+}
+.button{
+    padding-top: 7px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ulcont{
+    padding-left: 40px;
+}
+#p{
+    animation: heartBeat;
+    animation-duration: 1s;
+    animation-iteration-count: infinite ;
+}
 
 </style>
 
@@ -77,21 +114,24 @@ $recent=all('subjects',$order2.$limit);
                 // $today=strtotime("now");
             
             ?>
-            <div class="cont">
+        <div class="cont">
                 <div class="poptitle"><?=$subject;?></div>
-            <ul>
+            <ul class="ulcont">
                 <li>投票人數：<?=$total;?>人</li>
                 <li>開始時間：<?=$start;?></li>
                 <li>結束時間：<?=$end;?></li>
-                <button type="button">我要投票</button>
             </ul>
+            <div class="button">
+                <!-- <button type="button">我要投票</button> -->
+                <a href="?do=vote_result&id=<?=$pop['id'];?>"><button type="button">投票結果</button></a>
             </div>
+            
+        </div>
             
             <?php
             }
             ?>
         </div>
-    
 </div>
 
 <div class="one">
@@ -109,12 +149,14 @@ $recent=all('subjects',$order2.$limit);
             ?>
             <div class="cont">
                 <div class="poptitle"><?=$subject;?></div>
-            <ul>
+            <ul class="ulcont">
                 <li>投票人數：<?=$total;?>人</li>
                 <li>開始時間：<?=$start;?></li>
                 <li>結束時間：<?=$end;?></li>
-                <button type="button">我要投票</button>
             </ul>
+                <div class="button">
+                <a href="?do=vote_result&id=<?=$re['id'];?>"><button type="button">投票結果</button></a>
+                </div>
             </div>
             
             <?php
@@ -124,7 +166,7 @@ $recent=all('subjects',$order2.$limit);
     
 </div>
 
-
+<a href="?do=vote_list" style="text-decoration: none; color:blueviolet;"><button id="p" style="text-align: center;width:65px;position: relative;left: 48%;">MORE...</button></a>
 
 
 </body>
