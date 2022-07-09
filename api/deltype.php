@@ -9,5 +9,5 @@ if($table=='types'){
     del($table,$id);
 }
 
-to("../back.php");
+to("../back.php?do=admin_type");
 ?>
