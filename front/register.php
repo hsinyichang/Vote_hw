@@ -12,40 +12,40 @@
     <table>
         <tr>
             <td>帳號</td>
-            <td><input type="text" name="acc" id=""></td>
+            <td><input type="text" name="acc" id="" required></td>
         </tr>
         <tr>
             <td>密碼</td>
-            <td><input type="password" name="pw" id=""></td>
+            <td><input type="password" name="pw" id="" required pattern="[a-zA-Z0-9]{6,}" title="請輸入至少6位數密碼"></td>
         </tr>
         <tr>
             <td>姓名</td>
-            <td><input type="text" name="name" id=""></td>
+            <td><input type="text" name="name" id="" required></td>
         </tr>
         <tr>
             <td>生日</td>
-            <td><input type="date" name="birthday" id=""></td>
+            <td><input type="date" name="birthday" id="" required></td>
         </tr>
         <tr>
             <td>性別</td>
-            <td>男<input type="radio" name="gender" value="1">
-            女<input type="radio" name="gender" value="0"></td>
+            <td>男<input type="radio" name="gender" value="1" required>
+            女<input type="radio" name="gender" value="0" required></td>
         </tr>
         <tr>
             <td>地址</td>
-            <td><input type="text" name="addr" id=""></td>
+            <td><input type="text" name="addr" id="" required></td>
         </tr>
         <tr>
             <td>教育程度</td>
-            <td><input type="text" name="education" id="" placeholder="國小/國中/高中/大學/碩士"></td>
+            <td><input type="text" name="education" id="" placeholder="國小/國中/高中/大學/碩士" required></td>
         </tr>
         <tr>
             <td>密碼提示</td>
-            <td><input type="text" name="passnote" id=""></td>
+            <td><input type="text" name="passnote" id="" required></td>
         </tr>
         <tr>
             <td>email</td>
-            <td><input type="email" name="email" id=""></td>
+            <td><input type="email" name="email" id="" required></td>
         </tr>
     </table>
     <div>

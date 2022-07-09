@@ -30,12 +30,12 @@
             height: 350px;
         }
         table{
-            background-color:rgb(250 240 158 / 50%);
+            background-color:rgba(249 , 199, 238, 0.4);
             margin:auto;
             width:380px;
             height: 300px;
             border-radius: 24px;
-            box-shadow: 2px 2px 10px rgb(0 0 0 / 50%), inset 1px 1px 2px rgb(255 255 255 / 50%);
+            box-shadow: 5px 5px 6px #F4DDFC;
             font-size: 23px;
             border: 1px solid white;
         }
@@ -43,7 +43,10 @@
             width: 254px;
             height: 40px;
             border: 1px solid gray;
-            border-radius: 16px;
+            border-radius: 12px;
+            font-size: 20px;
+            color: #43C6AC;
+            padding-left: 10px;
         }
         input::-webkit-input-placeholder {
         color: #b9b9b9;    /* 更改placeholder的字體顏色  */
@@ -65,7 +68,7 @@
         }
         .td3{
             text-align: center;
-            font-size: 20px;
+            font-size: 15px;
         }
 
         
@@ -75,14 +78,17 @@
             
         }
         button{
-            font-size: 20px;
-            background-color: #faf09e;
-            border: 1px solid lightgray;
-            border-radius: 24%;
+            width: 100px;
+            font-size: 28px;
+            background-color: pink;
+            border: 1px solid white;
+            box-shadow: 2px 2px 2px #E9C8FD;
+            border-radius: 20px;
             cursor: pointer;
+            color: white;
         }
         button:hover{
-            color: red;
+            background-color: #FFA6E0
         }
         .fa-regular{
         animation:fadeIn;
@@ -107,23 +113,23 @@ if(isset($_GET['error'])) {
         <table>
             <tr>        
                 <td class="td2">
-            　　<input type="text" name="acc" id="" placeholder="帳號">
+            　　<input type="text" name="acc" id="" placeholder="帳號" required title="請填寫帳號">
                 </td>
             </tr>
             <tr>
                 <td class="td2">
-            　　<input type="password" name="pw" id="iconpw" placeholder="密碼"><i class="fa fa-eye" id=togglepassword></i>
+            　　<input type="password" name="pw" id="iconpw" placeholder="密碼" required title="請填寫密碼"><i class="fa fa-eye" id=togglepassword></i>
                 </td>
             </tr>
             <tr>
                 <td class="td3"><a href="?do=register">尚未註冊</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="?do=forgot">忘記密碼</a></td>
                 
             </tr>
+            <tr>
+                <td class='btns'><button type="submit">登入</button>
+            </td>
+            </tr>
         </table>
-        <div class='btns'>
-            <button type="submit">登入</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="reset">重置</button>
-        </div>
     </form>
 
     <script>
