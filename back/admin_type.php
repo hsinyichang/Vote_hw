@@ -27,7 +27,7 @@ include_once "./api/base.php";
         <?php
         $types=all('types');
         foreach($types as $type){
-            echo "<tr class='list-items'>";
+            echo "<tr id='list-items'>";
             echo "<td>{$type['name']}</td>";
             echo "<td class='text-center'>";//操作區
             ?> 
