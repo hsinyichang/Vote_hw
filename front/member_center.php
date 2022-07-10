@@ -8,11 +8,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.css"
         integrity="sha512-CJ5goVzT/8VLx0FE2KJwDxA7C6gVMkIGKDx31a84D7P4V3lOVJlGUhC2mEqmMHOFotYv4O0nqAOD0sEzsaLMBg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <style>
         .memberdiv{
             width: 40%;
             margin: 0 auto;
             padding-top: 10px;
+        }
+        ul>li{
+            display: flex;
+        }
+        ul{
+            font-size:20px;
+        }
+        .memtitle{
+            width: 125px;
+            padding: 0.5rem 0;
+            font-weight: bolder;
+        }
+        .memdata{
+            width: 409px;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        input{
+            width: 400px;
+            height: 38px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            box-shadow: 1px 1px 8px rgb(243, 208, 237);
+            background-color:rgba(241, 227, 239, 0.4);
+            color: #B95BC9;
+            text-align: center;
         }
     </style>
     
@@ -20,57 +49,54 @@
 <body>
     <div class="memberdiv">
     
-    <h1 style="text-align:center ;">會員中心</h1>
+    <h1 style="text-align: center;
+    margin:0 auto 10px auto;
+    border-radius: 20px;
+    width: 150px;
+    animation:slideInDown;
+    animation-duration: 0.8s;
+    color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;">會員中心</h1>
     <?php
     include "connect.php";//session_start()已寫在裡面了
     ?>
-
-    <p style="text-align:center;">歡迎<?=$_SESSION['user'];?>,祝你有美好的一天</p>
-
     <?php
     $sql="SELECT * FROM `users` where acc='{$_SESSION['user']}'";
     $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
-    echo '<hr>';
-    echo '<table>';
-    echo '<tr>';
-    echo '<td>ID:</td><td>'.$user['id'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>帳號:</td><td>'.$user['acc'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>密碼:</td><td>******</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>姓名:</td><td>'.$user['name'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>生日:</td><td>'.$user['birthday'].'</td>';
-    echo '<tr>';
+    
+    echo '<ul>';
+    echo '<li>';
+    echo '<div class="memtitle">帳號:</div><div class="memdata"><input type="text" value="'.$user['acc'].'" readonly ></div>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">密碼:</div><div class="memdata"><input type="text" value="*********" readonly ></div>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">姓名:</div><div class="memdata"><input type="text" value="'.$user['name'].'" readonly ></div>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">生日:</div><div class="memdata"><input type="text" value="'.$user['birthday'].'" readonly ></div>';
+    echo '<li>';
     if($user['gender']==0){
-        echo '<td>性別:</td><td>女</td>';
+        echo '<div class="memtitle">性別:</div><div class="memdata"><input type="text" value="女" readonly ></div>';
     }else{
-        echo '<td>性別:</td><td>男</td>';
+        echo '<div class="memtitle">性別:</div><div class="memdata"><input type="text" value="男" readonly ></div>';
     }
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>地址:</td><td>'.$user['addr'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>教育程度:</td><td>'.$user['education'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>註冊時間:</td><td>'.$user['reg_date'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>密碼提示:</td><td>'.$user['passnote'].'</td>';
-    echo '</tr>';
-    echo '<tr>';
-    echo '<td>E-mail:</td><td>'.$user['email'].'</td>';
-    echo '</tr>';
-    echo '</table>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">地址:</div><div class="memdata"><input type="text" value="'.$user['addr'].'" readonly ></div>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">教育程度:</div><div class="memdata"><input type="text" value="'.$user['education'].'" readonly ></div>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">密碼提示:</div><div class="memdata"><input type="text" value="'.$user['passnote'].'" readonly ></div>';
+    echo '</li>';
+    echo '<li>';
+    echo '<div class="memtitle">E-mail:</div><div class="memdata"><input type="text" value="'.$user['email'].'" readonly ></div>';
+    echo '</li>';
+    echo '</ul>';
     ?>
-    <button type="button" onclick="location.href='?do=edit&id=<?=$user['id'];?>'">編輯</button>
 
     <p>&nbsp;</p>
     <p>&nbsp;</p>

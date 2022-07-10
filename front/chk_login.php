@@ -21,7 +21,7 @@ $chk=$pdo->query($sql)->fetchColumn();
 //if($acc==$user['acc'] && $pw==$user['pw']){
 if($chk){
     $_SESSION['user']=$acc;//存入帳號到session
-    header("location:../index.php");
+    header("location:./index.php");
 }else{
     header("location:?do=login&error=帳號或密碼錯誤");
 }

@@ -13,7 +13,6 @@
 </head>
 <style>
 .one{
-
     /* border: solid 1px gray; */
     margin: 0 auto;
     width: 110vh;
@@ -23,20 +22,20 @@
 .two{
     text-align: center;
     margin:0 auto 10px auto;
-    border: 1px solid black;
     border-radius: 20px;
-    width: 120px;
+    width: 150px;
     animation:slideInDown;
     animation-duration: 0.8s;
-    
+    color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;
 }
 .three{
     display: flex;
     justify-content: space-evenly;
 }
 .cont:hover{
-    animation:pulse;
-    animation-duration:0.5s ;
+    transform: scale(1.05,1.05);
+    box-shadow: 0 0 10px #F4DDFC;
 }
 .cont{
     width: 278px;
@@ -47,7 +46,9 @@
     box-shadow: 5px 5px 6px #F4DDFC;
     padding: 5px 10px 0 10px;
     border-radius: 30px;
-
+    transition: 0.5s;
+    animation:slideInDown;
+    animation-duration: 0.8s;
 }
 .poptitle{
     text-align: center;
@@ -102,7 +103,7 @@ $recent=all('subjects',$order2.$limit);
 ?>
 
 <div class="one">
-    <div class="two">熱門主題</div>
+    <div class="two"><h1>熱門主題</h1></div>
     
         <div class="three">
             <?php
@@ -135,7 +136,7 @@ $recent=all('subjects',$order2.$limit);
 </div>
 
 <div class="one">
-    <div class="two">近期投票</div>
+    <div class="two"><h1>近期投票</h1></div>
     
         <div class="three">
             <?php

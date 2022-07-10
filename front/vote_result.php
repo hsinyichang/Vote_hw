@@ -23,35 +23,36 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
 }
 // ---------登入執行-----------
 ?>
-<h1 class="text-center"><?=$subject['subject'];?></h1>
-<div style="width:600px;margin:auto">
-    <div>總投票數:<?=$subject['total'];?></div>
-    <table class="result-table">
-        <tr>
-            <td>選項</td>
-            <td>投票數</td>
-            <td>比例</td>
-        </tr>
+<div style="width:700px;margin:auto">
+    <h1 style="padding-top: 20px;color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;" class="text-center"><?=$subject['subject'];?></h1>
+    <!-- <div>總投票數:<?=$subject['total'];?></div> -->
+    <li class="result-table-header">
+        
+            <div class="lione">選項</div>
+            <div class="litwo">投票數</div>
+            <div class="lithree">比例</div>
+        
         <?php 
         foreach($opts as $opt){
             $total=($subject['total']==0)?1:$subject['total'];
             $rate= $opt['total']/$total;
             $result=floor($rate*10000)/10000*100;
         ?>
-        <tr>
-            <td><?=$opt['option'];?></td>
-            <td><?=$opt['total'];?></td>
-            <td style="width: 300px;">
+            <li class="result-table">
+            <div class="lione"><?=$opt['option'];?></div>
+            <div class="litwo"><?=$opt['total'];?>　票</div>
+            <div class="lithree" style="width: 400px;">
                 <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width:<?=$result . "%";?>" aria-valuenow="<?=$result;?>" aria-valuemin="0" aria-valuemax="100"><?=$result . "%";?></div>
                 </div>
-            </td>
-        </tr>
+            </div>
+            </li>
         <?php        
         }
         ?>
-    </table>
-
+    
+    </li>
     <?php
     $today=strtotime(date("Y-m-d"));
     $end=strtotime($subject['end']);
@@ -59,7 +60,7 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
     
     if($start-$today>0){//尚未開始就不要顯示按鈕給使用者投票
     ?>
-    尚未開始
+    <div style="width: 110px;" class="but">尚未開始</div>
     <?php    
     }else{//開始投票
         if(isset($_SESSION['user'])){//有登入
@@ -69,12 +70,12 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
     <?php    
             }else{//結束
                 ?>
-                投票結束
+                <div style="width: 110px;" class="but">投票結束</div>
                 <?php
             }
         }else{//沒登入
             ?>
-            請登入投票
+            <div style="width: 110px;" class="but">請登入投票</div>
             <?php
         }
     }

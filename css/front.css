@@ -1,5 +1,8 @@
+*{
+    box-sizing: border-box;
+}
 body{
-    min-width:920px;
+    min-width:1335px;
     width: 100%;
     height: 100%;
 }
@@ -33,33 +36,38 @@ nav>div>a:hover{
 }
 #container{
 
-    min-height:calc(100vh - 232px - 32px );
+    min-height:calc(100vh - 232px - 32px);
     position: relative;
     top: 232px;
     background-image: url(../img/beach.png);
     background-repeat: no-repeat;
     background-size:cover ;
+    background-attachment: fixed;
+    
 }
 .type{  /*分類*/
-    margin: 0 auto;
-    width: 60%;
+    margin-left: 20%;
+    padding-top: 10px;
 }
 .list{ /*投票列表*/
     margin: 1rem auto;
     width: 60%;
+    min-width: 800px;
 }
 .list-header{ /*投票列表標題*/
     display:flex;
     justify-content: space-evenly;
     text-align: center;
-
+    box-shadow: 2px 2px 6px rgb(238, 182, 229);
 }
 .list a{
     text-decoration: none;
 
 }
 .list>a>li:hover{
-    transform: scale(1.1,1.1);/*選到的項目會放大1.1倍*/
+    transform: scale(1.05,1.05);/*選到的項目會放大1.1倍*/
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
+    transition: 0.7s;
 }
 .list-header div{
     width:calc(100% / 5);
@@ -86,18 +94,38 @@ nav>div>a:hover{
     font-size:1.15rem;
 }
 .list-items:hover{
-    background-color: rgb(248, 236, 246);
+    background-color:rgba(241, 227, 239, 0.4);
     cursor: pointer;
     
 }
 
+.result-table-header{
+    border-collapse: collapse;
+    margin: 15px auto 0 auto;
+    display: flex;
+    font-size: 18px;
+    background:rgb(240, 128, 212);
+    color:rgb(255, 255, 255);
+    box-shadow: 2px 2px 6px rgb(238, 182, 229);
+}
+.result-table-header>div{
+padding: 0.5rem 0;
+}
 .result-table{
     border-collapse: collapse;
-    box-shadow: 0 0 6px #bbb;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    font-weight: bold;
+    font-size:1.1rem;
 }
-.result-table td{
-    padding: 0.25rem;
-    border:1px solid #ccc;
+.result-table>div{
+    padding: 0.8rem 0;
+}
+.result-table:hover{
+    background-color:rgba(241, 227, 239, 0.4);
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
 }
 /* #types{
     padding:0.25rem 0.5rem;
@@ -145,3 +173,97 @@ nav>div>a:hover{
   .pretty-select:focus{
     box-shadow: 0 0 5px 2px #467BF4;    
   }
+  .p{
+    width: 130px;
+    border-radius: 15px;
+    border: 1px solid palevioletred;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    font-size: 18px;
+  }
+  .fa-arrow-right-arrow-left{
+    transform: rotate(90deg);
+  }
+  #animate{
+    animation: fadeInLeft;
+    animation-duration: 1s;
+  }
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #f095d5;
+    transition: width .6s ease-in;
+}
+    .progress {
+        display: flex;
+        height: 1.5rem;
+        overflow: hidden;
+        font-size: .75rem;
+        background-color: #dadfe5;
+        border-radius: 25.25rem;
+    }
+    .dropdown-menu{
+        display:none;
+        position: absolute;
+        background-color: #ffffff;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        
+        
+    }
+    .dropdown-menu>li{
+        margin: 7px;
+        text-align: center;
+    }
+    .dropdown-menu>li>a{
+        text-decoration: none;
+        color: #04319c;
+        
+    }
+    .dropdown-menu>li>a:hover{
+        color:rgb(167, 5, 132)
+    }
+    .vlogdiv{
+        width: 240px;
+        height: 150px;
+        margin-top: 20px;
+        margin-right: 20px;
+        border-radius: 15px;
+        background-color:rgba(249 , 199, 238, 0.4);
+        box-shadow: 5px 5px 6px #F4DDFC;
+        transition: 0.5s;
+    }
+    .vlogdiv:hover{
+        transform: scale(1.05,1.05);
+        box-shadow: 0 0 10px #F4DDFC;
+    }
+    .vlog{
+        display: flex;
+        flex-wrap: wrap;
+        width: 1100px;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+    .vlogtable{
+        font-size: 20px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 10px;
+    }
+.lione{
+    width: 200px;
+    text-align: center;
+}
+.litwo{
+    width: 80px;
+    text-align: center;
+}
+.lithree{
+    width: 420px;
+    text-align: center;
+}

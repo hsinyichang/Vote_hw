@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         
         body{
-            background-color: lightpink;
+            font-family: '華康粗圓體';
+            background: #43C6AC;  /*fallback for old browsers*/
+            background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  /*Chrome 10-25, Safari 5.1-6*/
+            background: linear-gradient(to right, #F8FFAE, #43C6AC); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
 
         }
         p{
@@ -21,19 +23,19 @@
             
             
         }
-        .logindiv{
+        .login{
             
             margin: auto;
             width:380px;
             height: 350px;
         }
         table{
-            background-color:rgb(250 240 158 / 50%);
+            background-color:rgba(249 , 199, 238, 0.4);
             margin:auto;
             width:380px;
             height: 300px;
             border-radius: 24px;
-            box-shadow: 2px 2px 10px rgb(0 0 0 / 50%), inset 1px 1px 2px rgb(255 255 255 / 50%);
+            box-shadow: 5px 5px 6px #F4DDFC;
             font-size: 23px;
             border: 1px solid white;
         }
@@ -41,15 +43,18 @@
             width: 254px;
             height: 40px;
             border: 1px solid gray;
-            border-radius: 16px;
+            border-radius: 12px;
+            font-size: 20px;
+            color: #43C6AC;
+            padding-left: 10px;
         }
         input::-webkit-input-placeholder {
         color: #b9b9b9;    /* 更改placeholder的字體顏色  */
         font-size:22px;    /* 更改placeholder的字體大小  */
         text-align: left;
         }
-        .logintable td{
-            padding:1.5rem;
+        table td{
+            padding:1rem;
             
         }
         .td1{
@@ -63,7 +68,7 @@
         }
         .td3{
             text-align: center;
-            font-size: 20px;
+            font-size: 15px;
         }
 
         
@@ -73,14 +78,17 @@
             
         }
         button{
-            font-size: 20px;
-            background-color: #faf09e;
-            border: 1px solid lightgray;
-            border-radius: 24%;
+            width: 100px;
+            font-size: 28px;
+            background-color: pink;
+            border: 1px solid white;
+            box-shadow: 2px 2px 2px #E9C8FD;
+            border-radius: 20px;
             cursor: pointer;
+            color: white;
         }
         button:hover{
-            color: red;
+            background-color: #FFA6E0
         }
         .fa-regular{
         animation:fadeIn;
@@ -93,37 +101,37 @@
     </style>
 </head>
 <body>
-    <div class="logindiv">
-        <p><i class="fa-regular fa-bell" style="color:yellow ;"></i>&nbsp;管理者登入</p>
+    <div class="login">
+        <p><i class="fa-regular fa-bell" style="color:orange ;"></i>&nbsp;管理者登入</p>
     <?php
 
 if(isset($_GET['error'])) {
     echo "<h2 style='color:red;text-align:center'>{$_GET['error']}</h2>";
 }
     ?>
-    <form action="?do=chk_login" method="post">
+    <form action='?do=chk_login' method="post">
         <table>
             <tr>        
                 <td class="td2">
-            　　<input type="text" name="acc" id="" placeholder="帳號">
+            　　<input type="text" name="acc" id="acc" placeholder="帳號" required title="請填寫帳號">
                 </td>
             </tr>
             <tr>
                 <td class="td2">
-            　　<input type="password" name="pw" id="iconpw" placeholder="密碼"><i class="fa fa-eye" id=togglepassword></i>
+            　　<input type="password" name="pw" id="iconpw" placeholder="密碼" required title="請填寫密碼"><i class="fa fa-eye" id=togglepassword></i>
                 </td>
             </tr>
             <tr>
-                <td class="td3">&nbsp;&nbsp;&nbsp;<a href="?do=forgot">忘記密碼</a></td>
+                <td class="td3"></td>
                 
             </tr>
+            <tr>
+                <td class='btns'><button type="submit">登入</button>
+            </td>
+            </tr>
         </table>
-        <div class='btns'>
-            <button type="submit">登入</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="reset">重置</button>
-        </div>
     </form>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         //小圖示顯示密碼
         //抓小圖示id
@@ -139,6 +147,20 @@ if(isset($_GET['error'])) {
             this.classList.toggle('fa-eye-slash');
             
         });
+
+        $('#acc').focus(function(){
+            $('#acc').css("background","#FDFBE6");
+        });
+        $('#acc').blur(function(){
+            $('#acc').css("background","");
+        });
+        $('#iconpw').focus(function(){
+            $('#iconpw').css("background","#FDF7E6");
+        });
+        $('#iconpw').blur(function(){
+            $('#iconpw').css("background","");
+        });
+
     </script>
 </div>
 </body>

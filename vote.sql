@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-06-29 08:41:04
+-- 產生時間： 2022-07-10 16:25:20
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -78,7 +78,27 @@ INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VAL
 (16, 0, 2, 7, '2022-06-26 07:40:48'),
 (17, 0, 2, 8, '2022-06-26 07:45:25'),
 (18, 4, 2, 5, '2022-06-26 08:07:36'),
-(19, 0, 9, 42, '2022-06-29 05:22:10');
+(19, 0, 9, 42, '2022-06-29 05:22:10'),
+(20, 8, 2, 8, '2022-06-30 14:28:03'),
+(21, 3, 9, 41, '2022-07-01 03:15:28'),
+(22, 3, 8, 39, '2022-07-01 03:15:42'),
+(24, 8, 11, 44, '2022-07-04 04:10:03'),
+(25, 8, 1, 1, '2022-07-05 01:32:07'),
+(26, 4, 11, 45, '2022-07-05 04:14:09'),
+(31, 3, 11, 43, '2022-07-05 12:45:45'),
+(32, 8, 13, 54, '2022-07-08 11:00:50'),
+(33, 8, 13, 56, '2022-07-08 11:00:50'),
+(34, 8, 13, 58, '2022-07-08 11:00:50'),
+(38, 4, 12, 49, '2022-07-08 15:04:28'),
+(39, 4, 13, 56, '2022-07-08 15:04:40'),
+(40, 3, 12, 48, '2022-07-09 13:50:44'),
+(41, 8, 12, 47, '2022-07-09 14:59:08'),
+(42, 4, 14, 64, '2022-07-10 05:37:59'),
+(43, 8, 14, 62, '2022-07-10 07:00:41'),
+(44, 3, 14, 68, '2022-07-10 07:07:27'),
+(45, 17, 12, 51, '2022-07-10 09:59:06'),
+(46, 17, 13, 55, '2022-07-10 09:59:20'),
+(47, 17, 14, 60, '2022-07-10 09:59:31');
 
 -- --------------------------------------------------------
 
@@ -98,27 +118,51 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
-(1, '吃便當', 1, 1),
-(2, '吃麥當勞', 1, 1),
-(3, '吃肯德雞', 1, 1),
-(4, '吃豬腳飯', 1, 1),
+(1, '便當', 1, 2),
+(2, '麥當勞', 1, 1),
+(3, '肯德雞', 1, 1),
+(4, '豬腳飯', 1, 1),
 (5, '美而美', 2, 2),
 (6, '7-11', 2, 1),
-(7, 'qBurger', 2, 1),
-(8, '永和豆漿', 2, 2),
+(7, 'QBurger', 2, 1),
+(8, '永和豆漿', 2, 3),
 (9, '全家', 2, 1),
 (10, '穿西裝', 3, 0),
 (11, '穿洋裝', 3, 0),
 (12, '穿吊嘎', 3, 0),
 (13, '穿制服', 3, 0),
-(35, 'dddddddd', 6, 0),
-(36, 'EEEEEEE', 7, 0),
 (37, '陳X中', 8, 1),
 (38, '趙X中', 8, 1),
-(39, '李X中', 8, 4),
+(39, '李X中', 8, 5),
 (40, '王X中', 8, 2),
-(41, '要', 9, 0),
-(42, '不要', 9, 1);
+(41, '要', 9, 4),
+(42, '不要', 9, 1),
+(43, '泰式料理', 11, 1),
+(44, '中式料理', 11, 1),
+(45, '美式料理', 11, 1),
+(46, '越式料理', 11, 2),
+(47, '機車', 12, 2),
+(48, '開車', 12, 1),
+(49, '捷運', 12, 1),
+(50, '公車', 12, 0),
+(51, '步行', 12, 1),
+(52, '腳踏車', 12, 0),
+(53, '唱歌', 13, 1),
+(54, '逛街', 13, 1),
+(55, '閱讀', 13, 1),
+(56, '看電影', 13, 2),
+(57, '運動', 13, 1),
+(58, '踏青', 13, 1),
+(59, '炸雞全餐', 1, 0),
+(60, '美國', 14, 1),
+(61, '英國', 14, 0),
+(62, '澳洲', 14, 1),
+(63, '非洲', 14, 0),
+(64, '日本', 14, 1),
+(65, '韓國', 14, 0),
+(66, '土耳其', 14, 0),
+(67, '加拿大', 14, 0),
+(68, '歐洲', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -128,13 +172,13 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 
 CREATE TABLE `subjects` (
   `id` int(11) UNSIGNED NOT NULL,
-  `subject` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type_id` int(11) NOT NULL,
-  `multiple` tinyint(1) NOT NULL DEFAULT 0,
+  `subject` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主題',
+  `type_id` int(11) NOT NULL COMMENT '分類序號',
+  `multiple` tinyint(1) NOT NULL DEFAULT 0 COMMENT '單複選',
   `multi_limit` tinyint(2) NOT NULL DEFAULT 1,
-  `start` date NOT NULL,
-  `end` date NOT NULL,
-  `total` int(11) UNSIGNED NOT NULL DEFAULT 0
+  `start` date NOT NULL COMMENT '開始日期',
+  `end` date NOT NULL COMMENT '結束日期',
+  `total` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '投票總人數'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -142,13 +186,15 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
-(1, '今天晚餐吃什麼?', 1, 0, 1, '2022-06-13', '2022-06-23', 24),
-(2, '明天早餐吃飯', 1, 0, 1, '2022-06-13', '2022-06-23', 7),
-(3, '明天上課穿什麼?', 1, 1, 1, '2022-06-13', '2022-06-23', 10),
-(6, 'aaaaaaa', 1, 0, 1, '2022-06-17', '2022-06-27', 0),
-(7, 'CCCC', 1, 1, 1, '2022-06-17', '2022-06-27', 0),
-(8, '台北市長候選,你會選誰', 2, 1, 1, '2022-06-17', '2022-06-27', 4),
-(9, '是否要實體上課', 1, 0, 1, '2022-06-29', '2022-07-09', 1);
+(1, '今天晚餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 25),
+(2, '明天早餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 8),
+(3, '明天上課穿什麼?', 2, 1, 1, '2022-06-13', '2022-06-23', 10),
+(8, '台北市長候選,你會選誰', 1, 1, 1, '2022-06-17', '2022-06-27', 7),
+(9, '是否要實體上課', 3, 0, 1, '2022-06-29', '2022-07-09', 5),
+(11, '你最愛吃哪種類的美食', 4, 0, 1, '2022-07-04', '2022-07-08', 5),
+(12, '上學使用什麼交通工具?', 7, 0, 1, '2022-07-08', '2022-07-16', 5),
+(13, '喜歡的休閒娛樂', 67, 1, 1, '2022-07-08', '2022-07-18', 4),
+(14, '最想去哪個國家遊玩', 2, 0, 1, '2022-07-10', '2022-07-23', 4);
 
 -- --------------------------------------------------------
 
@@ -166,8 +212,12 @@ CREATE TABLE `types` (
 --
 
 INSERT INTO `types` (`id`, `name`) VALUES
-(1, '生活'),
-(2, '政治');
+(1, '政治'),
+(2, '生活'),
+(3, '學習'),
+(4, '美食'),
+(7, '交通'),
+(67, '娛樂');
 
 -- --------------------------------------------------------
 
@@ -184,7 +234,7 @@ CREATE TABLE `users` (
   `gender` tinyint(1) UNSIGNED NOT NULL,
   `addr` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reg_date` date NOT NULL,
+  `reg_date` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `passnote` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -194,7 +244,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `addr`, `education`, `reg_date`, `passnote`, `email`) VALUES
-(2, 'gina', '81dc9bdb52d04dc20036dbd8313ed055', '欣儀', '1992-06-15', 0, '中榮街104巷9號1樓', '大學', '2022-06-26', '1234', 'f1233772002@gmail.com');
+(3, 'bii', 'MDEwNg==', 'bii', '1986-01-06', 1, '中榮街xx巷x號x樓', '大學', '2022-07-10 09:54:09', '0106', 'f1233772002@gmail.com'),
+(4, 'louise', 'MDUwMw==', 'louise', '2015-05-03', 1, '中榮街xxx巷x號x樓', '大學', '2022-07-10 09:54:20', '0503', 'f1233772002@gmail.com'),
+(8, 'gina', 'MDYxNQ==', '欣儀', '1922-06-15', 0, '新北市新莊區中榮街xxx巷9號x樓', '大學', '2022-07-10 07:05:21', '0615', 'f1233772002@gmail.com'),
+(17, 'ann', 'MDYyNzA2Mjc=', 'ann', '2018-06-27', 0, 'xxxxx', '大學', '2022-07-10 07:05:21', '06270627', 'f1233772002@gmail.com');
 
 --
 -- 已傾印資料表的索引
@@ -250,31 +303,31 @@ ALTER TABLE `admins`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

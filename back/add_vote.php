@@ -1,11 +1,12 @@
-<form action="../api/add_vote.php" method="post">
-    <table>
+<h1>新增投票</h1>
+<form action="./api/add_vote.php" method="post">
+    <table class="add-vote">
         <tr>
-            <td>
+            <td class="add-vote-td">
                 <label for="types">選擇分類：</label>
             </td>
-            <td>
-                <select name="types" id="types">
+            <td style="width: 200px;">
+                <select name="types" id="types" style="width: 100px; height:25px">
                 <?php
                     $types=all("types");
                     foreach($types as $type){
@@ -18,18 +19,18 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="add-vote-td">
                 <label for="subject">投票主題：</label>
             </td>
             <td>
-                <input type="text" name="subject" id="subject" required>
+                <input type="text" name="subject" id="subject" required placeholder="輸入投票主題">
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="add-vote-td">
                 <label for="">單/複選：</label>
             </td>
-            <td>
+            <td style="color: #B95BC9;">
                 <input type="radio" name="multiple" value="0" checked >
                 <label>單選</label>
                 <input type="radio" name="multiple" value="1" >
@@ -37,28 +38,29 @@
             </td>
         </tr>
         <tr>
-            <td>開始時間：</td>
+            <td class="add-vote-td">開始時間：</td>
             <td><input type="date" name="start" required></td>
         </tr>
         <tr>
-            <td>結束時間：</td>
+            <td class="add-vote-td">結束時間：</td>
             <td><input type="date" name="end" required></td>
         </tr>
         <!-- 使用表格群組tbody -->
         <tbody id="options">
             <tr>
-                <td>
+                <td class="add-vote-td">
                     <label>選項:</label>
                 </td>
                 <td>
-                    <input type="text" name="option[]"><input type="button" value="新增選項" id="addvote" required>
+                    <input type="text" name="option[]"required placeholder="輸入選項">　<input type="button" value="新增選項" id="addvote" >
                 </td>
             </tr>
         </tbody>
     </table>
-    
+    <br><br>
+    <div class="add-input">
     <input type="submit" value="完成新增">
-    
+    </div>
 </form>
     
     <script>
@@ -67,7 +69,7 @@
 
         // 動態新增欄位
         $("#addvote").click(function () {
-            $("#options").append('<tr id="tr'+trId+'"><td><label>選項:</label></td><td><input type="text" name="option[]" required><button type="button" onclick="delbtn(' + trId + ')">刪除</button></td></tr>');
+            $("#options").append('<tr id="tr'+trId+'"><td class="add-vote-td"><label>選項:</label></td><td><input type="text" name="option[]" required placeholder="輸入選項">　<button class="delbut" type="button" onclick="delbtn(' + trId + ')">刪除</button></td></tr>');
             trId++;
         });
         

@@ -27,8 +27,8 @@ nav>div>a{
     background-color: aquamarine;
 }
 #container{
-
-    min-height:calc(100vh - 232px - 32px );
+    min-width: 1330px;
+    min-height:calc(100vh - 232px - 32px);
     position: relative;
     top: 232px;
     background-image: url(../img/beach.png);
@@ -41,22 +41,12 @@ nav>div>a{
     min-width: 889px;
 }
 #table{
-    margin:1rem auto;
+    margin:0 auto;
     width: 300px;
-    
+    padding-top: 2rem;
+    font-size: 1.3rem;
 }
-.list-items{
-    
-    padding:0.5rem;
-    margin:0.25rem;
-    border-bottom:1px solid #eee;
-    font-weight: bold;
-    font-size:1.15rem;
-}
-.list-items:hover{
-    background-color: rgb(216, 255, 237);
-    cursor: pointer;
-}
+
 .edit{
     display: inline-block;
     padding: 3px 12px;
@@ -69,13 +59,36 @@ nav>div>a{
 .del{
     display: inline-block;
     padding: 3px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 1rem;
     background: rgb(255, 50, 50);
-    box-shadow: 3px 3px 10px #aaa;
+    box-shadow: 2px 3px 8px rgb(167, 124, 124);
     margin: 0 5px;
+    text-decoration: none;
+    color: #ffffff;
 }
-
+.deldiv{
+    width: 100px;
+    margin: 0 auto;
+}
+.inputdone{
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+}
+#inputdone{
+    background-color: pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #f4ddfc;
+    color: white;
+    font-size: 20px;
+    margin: 0 auto;
+}
+#inputdone:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
+}
 .edit:hover{
     background: rgb(255, 97, 34);
     color:white;
@@ -84,32 +97,242 @@ nav>div>a{
     background: rgb(255, 111, 111);
     color:rgb(255, 0, 0);
 }
-
-  .list-header{
-    
-    
-    text-align: left;
-    font-size: 20px;
-    
-  }
-  #list-header{
-    
-    
-    text-align: left;
-    font-size: 20px;
-    
-  }
-  
-  .list-header td{
-    width: calc(100% / 6);
-    background: #504d78;
-    color: #ccc;
-  }
   #list-header>td{
-    
+    font-size: 20px;
     width: calc(100% / 2);
     background: #da41c0;
-    color: #ccc;
+    color: rgb(255, 255, 255);
+  }
+  #list-add{
+    text-align: center;
+  }
+  #list-add-td input{
+    height: 30px;
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
+    background-color:rgba(255, 255, 255);
+    color: #B95BC9;
+    text-align: center;
+  }
+  .backp{
+    text-align: center;
+    border: 1px solid palevioletred;
+    width: 120px;
+    margin: 1rem auto 0 auto;
+  }
+  .pretty-select {
+    /*移除箭頭樣式*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+  
+    /*改變右邊箭頭樣式*/
+    background: url("../img/arrow1.png") no-repeat right center transparent;
+    background-size: 32px 32px;
+    border:0px;
+    font-size: 18px;
+    height:34px;
+    padding-left:2px;
+    padding-right:40px;
+    background-color:#ffffff;
+    color:rgb(241, 131, 227);
+    border-bottom:2px solid rgb(241, 131, 227);
   }
   
+  /*IE隱藏箭頭樣式*/
+  .pretty-select::-ms-expand { 
+    display: none; 
+  }
   
+  .pretty-select:focus{
+    box-shadow: 0 0 5px 2px #467BF4;    
+  }
+  .type{  /*分類*/
+    margin-left: 20%;
+    padding-top: 10px;
+}
+.list{ /*投票列表*/
+    margin: 1rem auto;
+    width: 60%;
+    min-width: 800px;
+}
+.list-header{ /*投票列表標題*/
+    display:flex;
+    justify-content: space-evenly;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgb(238, 182, 229);
+}
+.list a{
+    text-decoration: none;
+
+}
+.list>a>li:hover{
+    transform: scale(1.1,1.1);/*選到的項目會放大1.1倍*/
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
+}
+.list-header div{
+    width:calc(100% / 5);
+    padding:0.5rem 1rem;
+    background:rgb(240, 128, 212);
+    color:rgb(255, 255, 255);
+}
+.list-header div a{
+    color:rgb(255, 255, 255)
+}
+
+.list-items div{
+    width:calc(100% / 5);
+    padding:0.5rem 1rem;
+
+}
+
+.list-items{
+    display:flex;
+    justify-content: space-evenly;
+    padding:0.5rem;
+    margin:0.25rem 0;
+    border-bottom:1px solid #eee;
+    font-weight: bold;
+    font-size:1.15rem;
+}
+#list-items{
+    font-weight: bold;
+    font-size:1.3rem;
+    text-align: center;
+    height: 36px;
+}
+#list-header{ /*投票列表標題*/
+    text-align: center;
+    box-shadow: 2px 2px 6px rgb(238, 182, 229);
+    color: white;
+    
+}
+.list-items:hover{
+    background-color:rgba(241, 227, 239, 0.4);
+    cursor: pointer;    
+}
+.text-center{
+    display: flex;
+    justify-content: center; 
+}
+.text-center > div >a{
+    text-decoration: none;
+}
+.text-center > div> a:hover{
+    font-size:larger;
+    color: red;
+}
+input::-webkit-input-placeholder {
+    text-align: center;
+}
+.add-vote{
+    width: 350px;
+    margin: 0 auto;
+    padding-top: 3rem;
+    text-align: left;
+    font-size: 1.3rem;
+}
+.add-vote input{
+    height: 27px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
+    background-color:rgba(255, 255, 255);
+    color: #B95BC9;
+    text-align: center;
+}
+.add-vote tr{
+    height: 40px;
+}
+#types{
+    font-size: 1.4rem;
+    color: #B95BC9;
+}
+.add-vote-td{
+    font-weight: bolder;
+}
+.add-input{
+    width: 120px;
+    margin: 0 auto;
+    height: 40px;
+}
+.add-input input{
+    
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 18px;
+}
+.add-input input:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
+    background-color:rgb(253, 228, 232);
+}
+#addvote{
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 18px;
+}
+#addvote:hover{
+    cursor: pointer;
+    background-color:rgb(253, 228, 232);
+}
+.editbut{
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 18px;
+}
+.editbut:hover{
+    cursor: pointer;
+    background-color:rgb(253, 228, 232);
+}
+.delbut{
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 18px;
+}
+.delbut:hover{
+    cursor: pointer;
+    background-color:rgb(253, 228, 232);
+}
+.edit-table{
+    margin: 1.5rem auto 0 auto;
+    width:370px;
+    font-size: 1.3rem;
+}
+.edit-td1{
+    width: 150px;
+    font-weight: bolder;
+    height: 40px;
+}
+.edit-td2{
+    width: 220px;
+    height: 40px;
+    color: #B95BC9;
+}
+.edit-td2 input{
+    height: 25px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
+    background-color:rgba(255, 255, 255);
+    color: #B95BC9;
+    text-align: center;
+}

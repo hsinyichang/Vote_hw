@@ -9,21 +9,19 @@
 
 include_once "./api/base.php";
 ?>
-<form action="../api/add_type.php" method="post">
-    <div>
-        <label for="name">新增分類:</label>
-        <input type="text" name="name" id="name" required>
-    </div>
-    <div>
-        <input class="btn btn-primary" type="submit" value="送出">
-    </div>
-</form>
+<h1>分類管理</h1>
 <div>
     <table id="table">
         <tr id="list-header">
             <td>分類名稱</td>
             <td>操作</td>
         </tr>
+        <form action="./api/add_type.php" method="post">
+        <tr id="list-add">
+            <td id="list-add-td"><input type="text" name="name" id="name" required placeholder="輸入分類名稱"></td>
+            <td><input class="btn btn-primary" type="submit" value="送出"></td>
+        </tr>
+        </form>
         <?php
         $types=all('types');
         foreach($types as $type){
@@ -33,7 +31,7 @@ include_once "./api/base.php";
             ?> 
             <a class="del" href="javascript:
             swal.fire({
-            title:'確定要刪除<?=$type['name']?>分類?',
+            title:'確定要刪除<br>【<?=$type['name']?>】分類?',
             icon:'warning',
             text:'刪除就回不去了~~',
             showCancelButton: true,
@@ -41,7 +39,7 @@ include_once "./api/base.php";
             cancelButtonText: '取消',
             }).then((result)=>{
                 if(result.isConfirmed){
-                window.location.href='../api/deltype.php?table=types&id=<?=$type['id'];?>';
+                window.location.href='./api/deltype.php?table=types&id=<?=$type['id'];?>';
                 }else if(result.dismiss === Swal.DismissReason.cancel){
                     
                 }
