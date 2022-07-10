@@ -4,11 +4,15 @@
         <?php
         // include_once "connect.php";/*放到程式開頭，因裡面有session start */
         if(isset($_SESSION['user'])){/*這裡判斷是否有session為登出或登入 */
+            $pdo=pdo();
+            $sql="SELECT * FROM `users` where acc='{$_SESSION['user']}'";
+            $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         ?>
     <div>
         <a href="#" id="membercenter"><i class="fa-solid fa-circle-user"></i>會員中心</a>
         <div class="dropdown-menu">
-            <li><a href="?do=member_center">編輯會員資料</a></li>
+            <li><a href="?do=member_center">查看會員資料</a></li>
+            <li><a href="?do=edit&id=<?=$user['id'];?>">編輯會員資料</a></li>
             <li><a href="?do=vote_log">查看已投票主題</a></li>
             <li><hr></li>
             <li><a href='?do=logout'><i class="fa-solid fa-circle-user"></i>登出</a></li>
