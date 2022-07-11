@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2022-07-10 16:25:20
--- 伺服器版本： 10.4.24-MariaDB
--- PHP 版本： 8.1.6
+-- 主機： localhost
+-- 產生時間： 2022 年 07 月 11 日 12:25
+-- 伺服器版本： 10.3.34-MariaDB-0ubuntu0.20.04.1
+-- PHP 版本： 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `vote`
+-- 資料庫： `s1110210`
 --
 
 -- --------------------------------------------------------
@@ -98,7 +98,8 @@ INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VAL
 (44, 3, 14, 68, '2022-07-10 07:07:27'),
 (45, 17, 12, 51, '2022-07-10 09:59:06'),
 (46, 17, 13, 55, '2022-07-10 09:59:20'),
-(47, 17, 14, 60, '2022-07-10 09:59:31');
+(47, 17, 14, 60, '2022-07-10 09:59:31'),
+(48, 18, 12, 50, '2022-07-11 06:38:15');
 
 -- --------------------------------------------------------
 
@@ -131,10 +132,6 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (11, '穿洋裝', 3, 0),
 (12, '穿吊嘎', 3, 0),
 (13, '穿制服', 3, 0),
-(37, '陳X中', 8, 1),
-(38, '趙X中', 8, 1),
-(39, '李X中', 8, 5),
-(40, '王X中', 8, 2),
 (41, '要', 9, 4),
 (42, '不要', 9, 1),
 (43, '泰式料理', 11, 1),
@@ -144,7 +141,7 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (47, '機車', 12, 2),
 (48, '開車', 12, 1),
 (49, '捷運', 12, 1),
-(50, '公車', 12, 0),
+(50, '公車', 12, 1),
 (51, '步行', 12, 1),
 (52, '腳踏車', 12, 0),
 (53, '唱歌', 13, 1),
@@ -189,10 +186,9 @@ INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `
 (1, '今天晚餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 25),
 (2, '明天早餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 8),
 (3, '明天上課穿什麼?', 2, 1, 1, '2022-06-13', '2022-06-23', 10),
-(8, '台北市長候選,你會選誰', 1, 1, 1, '2022-06-17', '2022-06-27', 7),
 (9, '是否要實體上課', 3, 0, 1, '2022-06-29', '2022-07-09', 5),
 (11, '你最愛吃哪種類的美食', 4, 0, 1, '2022-07-04', '2022-07-08', 5),
-(12, '上學使用什麼交通工具?', 7, 0, 1, '2022-07-08', '2022-07-16', 5),
+(12, '上學使用什麼交通工具?', 7, 0, 1, '2022-07-08', '2022-07-16', 6),
 (13, '喜歡的休閒娛樂', 67, 1, 1, '2022-07-08', '2022-07-18', 4),
 (14, '最想去哪個國家遊玩', 2, 0, 1, '2022-07-10', '2022-07-23', 4);
 
@@ -217,7 +213,8 @@ INSERT INTO `types` (`id`, `name`) VALUES
 (3, '學習'),
 (4, '美食'),
 (7, '交通'),
-(67, '娛樂');
+(67, '娛樂'),
+(87, '寵物');
 
 -- --------------------------------------------------------
 
@@ -234,7 +231,7 @@ CREATE TABLE `users` (
   `gender` tinyint(1) UNSIGNED NOT NULL,
   `addr` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reg_date` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `passnote` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -244,10 +241,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `addr`, `education`, `reg_date`, `passnote`, `email`) VALUES
-(3, 'bii', 'MDEwNg==', 'bii', '1986-01-06', 1, '中榮街xx巷x號x樓', '大學', '2022-07-10 09:54:09', '0106', 'f1233772002@gmail.com'),
+(3, 'bii', 'MDEwNg==', 'Bii', '1986-01-06', 1, '中x街xx巷x號x樓', '大學', '2022-07-11 04:42:09', '0106', 'f1233772002@gmail.com'),
 (4, 'louise', 'MDUwMw==', 'louise', '2015-05-03', 1, '中榮街xxx巷x號x樓', '大學', '2022-07-10 09:54:20', '0503', 'f1233772002@gmail.com'),
 (8, 'gina', 'MDYxNQ==', '欣儀', '1922-06-15', 0, '新北市新莊區中榮街xxx巷9號x樓', '大學', '2022-07-10 07:05:21', '0615', 'f1233772002@gmail.com'),
-(17, 'ann', 'MDYyNzA2Mjc=', 'ann', '2018-06-27', 0, 'xxxxx', '大學', '2022-07-10 07:05:21', '06270627', 'f1233772002@gmail.com');
+(17, 'ann', 'MDYyNzA2Mjc=', '恩恩', '2018-06-27', 0, 'xxxxx', '大學', '2022-07-11 04:43:48', '06270627', 'f1233772002@gmail.com'),
+(18, 's', 'c3Nzc3Nz', 's', '2022-07-11', 1, 's', 's', '2022-07-11 06:37:49', 's', 's@gmail.com');
 
 --
 -- 已傾印資料表的索引
@@ -303,31 +301,31 @@ ALTER TABLE `admins`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
