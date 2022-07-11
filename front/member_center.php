@@ -129,6 +129,7 @@
     重新導向
     <button onclick="location.href='edit.php?id=<?=$user['id'];?>'">編輯</button>  第三種
     -->
+<br><br><br><br><br><br><br><br>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"

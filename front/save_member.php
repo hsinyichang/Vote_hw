@@ -4,6 +4,7 @@ $pw=base64_encode($_POST['pw']);
 
 $sql="UPDATE `users` 
         SET `pw`='{$pw}',
+            `name`='{$_POST['name']}',
             `addr`='{$_POST['addr']}',
             `education`='{$_POST['education']}',
             `passnote`='{$_POST['passnote']}',

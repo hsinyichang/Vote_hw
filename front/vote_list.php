@@ -168,8 +168,8 @@ if(isset($_GET['filter'])){  //分類
                 echo "&nbsp;</a></div>";
             }
         }
-        
         ?>
+        <br><br><br><br>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
