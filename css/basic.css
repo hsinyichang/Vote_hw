@@ -10,18 +10,19 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 999;
+    z-index: 2;
+    height: 36px;
 }
 footer{
     width: 100%;
     height: 2rem;
-    background: lightgrey;
+    background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     text-align: center;
     position: fixed;
     bottom: 0px;
     z-index: 1;
-    padding-top: 8px;
+    padding-top: 6px;
 }
 
 /*--common components---*/
@@ -49,7 +50,26 @@ footer{
     
 }
 .btn.btn-info{
-    background-color:aqua;
+    width: 100px;
+    height:34px;
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    padding: 10px auto 0 auto;
+}
+.btn.btn-info:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
+    background-color:rgb(253, 228, 232);
+}
+.votediv{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }
 .btn.btn-danger{
     background-color:rgb(214, 100, 100);
@@ -60,8 +80,12 @@ footer{
 
 .but{
     font-size: 20px;
-    border: 1px solid palevioletred;
+    border: 1px solid rgb(207, 170, 182);
     border-radius: 10px;
+    background-color: #f4ddfc;
     text-align: center;
     margin: 20px auto;
+    font-weight: bolder;
+    font-style: italic;
+    box-shadow: 2px 2px 5px rgb(207, 170, 182);
 }

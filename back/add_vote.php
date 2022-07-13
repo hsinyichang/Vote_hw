@@ -5,7 +5,7 @@
             <td class="add-vote-td">
                 <label for="types">選擇分類：</label>
             </td>
-            <td style="width: 200px;">
+            <td style="width: 350px;">
                 <select name="types" id="types" style="width: 100px; height:25px">
                 <?php
                     $types=all("types");
@@ -38,6 +38,10 @@
             </td>
         </tr>
         <tr>
+            <td class="add-vote-td">顯示前台</td>
+            <td class="edit-td2"><input type="radio" name="sh" value="1" checked>是<input type="radio" name="sh" value="0">否</td>
+        </tr>
+        <tr>
             <td class="add-vote-td">開始時間：</td>
             <td><input type="date" name="start" required></td>
         </tr>
@@ -60,7 +64,8 @@
     <br><br>
     <div class="add-input">
     <input type="submit" value="完成新增">
-    </div>
+    
+    </div><br><br><br><br><br>
 </form>
     
     <script>

@@ -11,10 +11,6 @@
         
         body{
             font-family: '華康粗圓體';
-            background: #43C6AC;  /*fallback for old browsers*/
-            background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  /*Chrome 10-25, Safari 5.1-6*/
-            background: linear-gradient(to right, #F8FFAE, #43C6AC); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
-
         }
         p{
             padding-top:150px ;
@@ -77,7 +73,7 @@
             text-align: center;
             
         }
-        button{
+        table button{
             width: 100px;
             font-size: 28px;
             background-color: pink;
@@ -87,7 +83,7 @@
             cursor: pointer;
             color: white;
         }
-        button:hover{
+        table button:hover{
             background-color: #FFA6E0
         }
         .fa-regular{
@@ -102,7 +98,9 @@
 </head>
 <body>
     <div class="login">
-        <p><i class="fa-regular fa-bell" style="color:orange ;"></i>&nbsp;管理者登入</p>
+        <p><i class="fa-regular fa-bell" style="color:orange ;"></i>&nbsp;<span style="font-weight: bolder;text-align: center;
+    color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;">管理者登入</span></p>
     <?php
 
 if(isset($_GET['error'])) {

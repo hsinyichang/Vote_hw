@@ -41,7 +41,7 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
     $loguser=$pdo->query($log)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="acctitle">
-【<?=$uid['acc'];?>】 已投票主題
+【<?=$uid['name'];?>】 的已投票主題
 </div>
 <div class="vlog">
 <?php
@@ -64,10 +64,11 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
                     }else{
                     if(($end-$today)>=0){
                         $remain=ceil(($end-$today)/(60*60*24));
-                    if($end==$today){
-                      echo "今天午夜截止";
-                    }else{
-                    echo "倒數".$remain."天結束";}
+                        if($end==$today){
+                        echo "<span style='color:red'>今天午夜截止</span>";
+                        }else{
+                        echo "<span style='color:#F78872'>倒數".$remain."天結束</span>";
+                        }
                     }else{
                         echo "<span style='color:grey'>投票已結束</span>";
                     }

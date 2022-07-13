@@ -12,6 +12,9 @@ $subject=find('subjects',$subject_id);
 $subject['subject']=$new_subject;
 $subject['multiple']=$_POST['multiple'];
 $subject['type_id']=$_POST['types'];
+$subject['start']=$_POST['start'];
+$subject['end']=$_POST['end'];
+$subject['sh']=$_POST['sh'];
 
 //使用save()函式把投票主題存至資料表subjects中
 save('subjects',$subject);

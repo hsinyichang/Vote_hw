@@ -86,7 +86,8 @@
     |mulit_limit|tinyint(2)|1|--|單/複選項目數|
     |start|date|--|--|--|
     |end|date|--|--|--|
-    |total|int(11)|--|--|--|
+    |total|int(11)|--|--|--|--|
+    |sh|tinyint(1)|--|--|顯示與否|
 * options
     |名稱|型態|預設值|A_I|備註|
     |--|--|--|--|--|
@@ -114,14 +115,13 @@
     |--|--|--|--|--|
     |id|int(11)|--|true|序號|
     |acc|varchar(12)|--|--|帳號|
-    |pw|varchar(128)|--|--|--|
-    |name|varchar(12)|--|--|--|
-    |birthday|date|--|--|--|
+    |pw|varchar(128)|--|--|密碼|
+    |name|varchar(12)|--|--|姓名|
+    |birthday|date|--|--|生日|
     |gender|tinyint(1)|--|--|性別|
-    |addr|varchar(64)|--|--|--|
-    |education|varchar(32)|--|--|--|
-    |reg_date|timestamp|--|--|--|
-    |passnote|varchar(128)|--|--|--|
+    |education|varchar(32)|--|--|教育程度|
+    |reg_date|timestamp|--|--|註冊時間|
+    |passnote|varchar(128)|--|--|密碼提示|
     |email|varchar(256)|--|--|--|
 
 

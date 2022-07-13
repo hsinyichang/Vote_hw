@@ -37,44 +37,44 @@ if(isset($_GET['filter'])){  //分類
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href="?do=vote_list&order=multiple&type=desc<?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href="?do=vote_list&order=multiple&type=asc<?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href="?do=vote_list&order=end&type=desc<?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
+                <div><a href="?do=vote_list&order=end&type=asc<?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
                 <?php
                 }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
+                    <div><a href="?do=vote_list&order=remain&type=desc<?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
                 <?php 
                 }else{
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <div><a href="?do=vote_list&order=remain&type=asc<?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                     }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href='?do=vote_list&order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href='?do=vote_list&order=total&type=desc<?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href='?do=vote_list&order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href='?do=vote_list&order=total&type=asc<?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }
                 ?>
@@ -107,19 +107,34 @@ if(isset($_GET['filter'])){  //分類
             if(isset($_GET['filter'])){
                 if(!$_GET['filter']==0){
                     $filter=['type_id'=>$_GET['filter']];
+                    
                 }
+            }else{
+               
             }
+            
+            // $total=math('subjects','count','id',$filter);
+            // $div=8;
+            // if(ceil($total/$div)<1){
+            //     $pages=1;
+            // }else{
+            //     $pages=ceil($total/$div);  
+            // }
+            // $now=isset($_GET['p'])?$_GET['p']:1;
+            // $start=($now-1)*$div;
+            // $page_rows=" limit $start,$div";
+            $show=['sh'=> '1'];
+            $s="`sh`=1";
+            if(isset(($_GET['filter']))){
+                if(!$_GET['filter']==0){
+            $subjects=all('subjects',$filter,' && ' . $s . $orderStr); //. $page_rows
+                }else{
+                    $subjects=all('subjects', $show , $orderStr); //. $page_rows
+                }
+            }else{
 
-            $total=math('subjects','count','id',$filter);
-            $div=5;
-            $pages=ceil($total/$div);
-            $now=isset($_GET['p'])?$_GET['p']:1;
-            $start=($now-1)*$div;
-            $page_rows=" limit $start,$div";
-
-
-            $subjects=all('subjects',$filter,$orderStr . $page_rows);
-
+                $subjects=all('subjects', $show , $orderStr);//. $page_rows
+            }
             //使用迴圈將每一筆資料的內容顯示在畫面上
             foreach($subjects as $subject){
                 echo "<a href='?do=vote_result&id={$subject['id']}'>";
@@ -158,7 +173,7 @@ if(isset($_GET['filter'])){  //分類
 
         ?>
         </ul>
-        <div class="text-center">
+        <!-- <div class="text-center">
         <?php
         if($pages > 1){
             for($i=1;$i<=$pages;$i++){
@@ -169,8 +184,9 @@ if(isset($_GET['filter'])){  //分類
             }
         }
         ?>
+        
+        </div> -->
         <br><br><br><br>
-        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

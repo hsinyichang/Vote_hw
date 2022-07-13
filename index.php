@@ -14,12 +14,12 @@
 <body>
 <div id="header">    
     <?php 
-        include "./layout/slider.php";
         include "./layout/front_nav.php";
-    ?>
+        ?>
 </div>
 <div id="container">
-   <?php
+    <?php
+    include "./layout/slider.php";
 if(isset($_GET['do'])){ //在vote_list頁面設do變數125行開始
     $file='./front/'.$_GET['do'].".php";
 }

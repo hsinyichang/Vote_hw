@@ -52,11 +52,12 @@
     <h1 style="text-align: center;
     margin:0 auto 10px auto;
     border-radius: 20px;
-    width: 150px;
+    width: 200px;
     animation:slideInDown;
     animation-duration: 0.8s;
     color: #8501F5;
-    text-shadow: 2px 2px 3px #E1B8F5;">會員中心</h1>
+    text-shadow: 2px 2px 3px #E1B8F5;
+    font-weight: bolder;">會員中心</h1>
     <?php
     include "connect.php";//session_start()已寫在裡面了
     ?>
@@ -82,9 +83,6 @@
     }else{
         echo '<div class="memtitle">性別:</div><div class="memdata"><input type="text" value="男" readonly ></div>';
     }
-    echo '</li>';
-    echo '<li>';
-    echo '<div class="memtitle">地址:</div><div class="memdata"><input type="text" value="'.$user['addr'].'" readonly ></div>';
     echo '</li>';
     echo '<li>';
     echo '<div class="memtitle">教育程度:</div><div class="memdata"><input type="text" value="'.$user['education'].'" readonly ></div>';

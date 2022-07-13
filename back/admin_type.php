@@ -18,7 +18,7 @@ include_once "./api/base.php";
         </tr>
         <form action="./api/add_type.php" method="post">
         <tr id="list-add">
-            <td id="list-add-td"><input type="text" name="name" id="name" required placeholder="輸入分類名稱"></td>
+            <td id="list-add-td"><input type="text" name="name" id="name" title="分類名稱" required placeholder="輸入分類名稱"></td>
             <td><input class="btn btn-primary" type="submit" value="送出"></td>
         </tr>
         </form>

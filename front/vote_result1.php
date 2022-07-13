@@ -5,7 +5,7 @@ $opts=all("options",['subject_id'=>$_GET['id']]);
 ?>
 <div style="width:700px;margin:auto">
     <h1 style="padding-top: 20px;color: #8501F5;
-    text-shadow: 2px 2px 3px #E1B8F5;" class="text-center"><?=$subject['subject'];?></h1>
+    text-shadow: 2px 2px 3px #E1B8F5;font-weight: bolder;" class="text-center"><?=$subject['subject'];?></h1>
     <!-- <div>總投票數:<?=$subject['total'];?></div> -->
     <li class="result-table-header">
         
@@ -34,4 +34,5 @@ $opts=all("options",['subject_id'=>$_GET['id']]);
     </li>
     <div style="width: 170px;" class="but">您已投票過囉!</div>
 </div>
+<br><br><br><br><br>
 

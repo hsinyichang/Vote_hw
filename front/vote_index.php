@@ -23,11 +23,12 @@
     text-align: center;
     margin:0 auto 10px auto;
     border-radius: 20px;
-    width: 150px;
+    width: 200px;
     animation:slideInDown;
     animation-duration: 0.8s;
     color: #8501F5;
     text-shadow: 2px 2px 3px #E1B8F5;
+    font-weight: bolder;
 }
 .three{
     display: flex;
@@ -39,7 +40,7 @@
 }
 .cont{
     width: 278px;
-    height: 135px;
+    height: 140px;
     border: 1px solid #FEEBFA;
     background-color:rgba(249 , 199, 238, 0.4);
     /* margin-left: 65px; */
@@ -54,21 +55,10 @@
     text-align: center;
     font-weight: bolder;
     text-shadow: 1px 1px 1px gray;
-    font-size: 18px;
+    font-size: 20px;
 }
-button{
-    /* position: relative;
-    left: 40%; */
-    width: 62px;
-    height:22px;
-    background-color:pink;
-    border-radius: 10px;
-    border: 1px solid pink;
-    box-shadow: 5px 5px 6px #F4DDFC;
-    color: white;
-    font-size: 14px;
-}
-button:hover{
+
+.button button:hover{
     cursor: pointer;
     background-color: #FFA6E0;
 }
@@ -77,13 +67,33 @@ button:hover{
     display: flex;
     justify-content: space-evenly;
 }
+.button button{
+    width: 66px;
+    height:22px;
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 14px;
+}
 .ulcont{
     padding-left: 40px;
+    padding-top: 5px;
+    font-size: 14px;
 }
 #p{
     animation: heartBeat;
     animation-duration: 1s;
     animation-iteration-count: infinite ;
+    width: 66px;
+    height:22px;
+    background-color:pink;
+    border-radius: 10px;
+    border: 1px solid pink;
+    box-shadow: 5px 5px 6px #F4DDFC;
+    color: white;
+    font-size: 14px;
 }
 
 </style>
@@ -95,15 +105,15 @@ include_once "./api/base.php";
 $pdo=pdo();
 $order="ORDER BY `total` DESC ";
 $limit="LIMIT 3";
-$popular=all('subjects',$order.$limit);
-
+$show=['sh'=>'1'];
+$popular=all('subjects',$show,$order.$limit);
 $order2="ORDER BY `start` DESC ";
-$recent=all('subjects',$order2.$limit);
+$recent=all('subjects',$show,$order2.$limit);
 // dd($popular);
 ?>
 
 <div class="one">
-    <div class="two"><h1>熱門主題</h1></div>
+    <div class="two"><h1 style="font-weight: bolder;">熱門主題</h1></div>
     
         <div class="three">
             <?php
@@ -136,7 +146,7 @@ $recent=all('subjects',$order2.$limit);
 </div>
 
 <div class="one">
-    <div class="two"><h1>近期投票</h1></div>
+    <div class="two"><h1 style="font-weight: bolder;">近期投票</h1></div>
     
         <div class="three">
             <?php
@@ -166,9 +176,9 @@ $recent=all('subjects',$order2.$limit);
         </div>
     
 </div>
-
-<a href="?do=vote_list" style="text-decoration: none; color:blueviolet;"><button id="p" style="text-align: center;width:65px;position: relative;left: 48%;">MORE...</button></a>
-
+<div style="height: 50px;">
+<a href="?do=vote_list" style="text-decoration: none; color:blueviolet;"><button id="p" style="text-align: center;width:65px;position: relative;left: 48%;top:100%">MORE...</button></a>
+</div>
 
 </body>
 </html>

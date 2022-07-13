@@ -32,10 +32,6 @@
             女<input type="radio" name="gender" value="0" required></td>
         </tr>
         <tr>
-            <td>地址</td>
-            <td><input type="text" name="addr" id="" required></td>
-        </tr>
-        <tr>
             <td>教育程度</td>
             <td><input type="text" name="education" id="" placeholder="國小/國中/高中/大學/碩士" required></td>
         </tr>

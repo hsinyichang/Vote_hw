@@ -10,8 +10,8 @@ body{
 nav{
     display: flex;
     width: 100%;
-    height: 32px;
-    background-color:lightgray;
+    height: 36px;
+    background-color:rgb(0, 0, 0);
     justify-content: flex-end;
     padding-right: 18px;
 }
@@ -29,20 +29,10 @@ nav>div>a:hover{
     font-size: 20px;
     color: coral;
 }
-.slider{
-    width: 100%;
-    height: 200px;
-    background-color: aquamarine;
-}
-#container{
 
-    min-height:calc(100vh - 232px - 32px);
+#container{
     position: relative;
-    top: 232px;
-    background-image: url(../img/beach.png);
-    background-repeat: no-repeat;
-    background-size:cover ;
-    background-attachment: fixed;
+    top: 36px;
     
 }
 .type{  /*分類*/
@@ -213,6 +203,7 @@ padding: 0.5rem 0;
         background-color: #ffffff;
         border: 1px solid lightgray;
         border-radius: 10px;
+        right: 10px;
         
         
     }
@@ -248,6 +239,7 @@ padding: 0.5rem 0;
         width: 1100px;
         margin: 0 auto;
         padding-top: 30px;
+        justify-content: center;
     }
     .vlogtable{
         font-size: 20px;
@@ -266,4 +258,46 @@ padding: 0.5rem 0;
 .lithree{
     width: 420px;
     text-align: center;
+}
+.vote-item{
+    width: 500px;
+    margin: 0 auto;
+    
+}
+.vote-items{
+    margin: 20px auto 0 auto;
+    border: 1px solid rgb(255, 250, 251);
+    height: 35px;
+    width: 350px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    padding-top: 6px;
+    background-color:rgba(250, 236, 248, 0.4);
+    box-shadow: 1px 1px 8px rgb(243, 208, 237);
+    font-weight: bolder;
+}
+.vote-items:hover{
+transform: scale(1.1,1.1);
+transition: 0.4s;
+}
+.votedone{
+    text-align: center;
+    margin-top: 20px;
+}
+.votedone input{
+    width: 66px;
+    height: 30px;
+    background-color: pink;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 222, 228);
+    box-shadow: 5px 5px 6px #f4ddfc;
+    color: white;
+    font-size: 1.3rem;
+    margin-left: 20px;
+}
+.votedone input:hover{
+    cursor: pointer;
+    transform: scale(1.09,1.09);
+    transition: 0.3s;
 }

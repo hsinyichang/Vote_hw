@@ -23,7 +23,7 @@ include_once "./api/base.php";
     text-align: center;
     margin:0 auto 10px auto;
     border-radius: 20px;
-    width: 150px;
+    width: 200px;
     animation:slideInDown;
     animation-duration: 0.8s;
     color: #8501F5;
@@ -35,12 +35,13 @@ include_once "./api/base.php";
 
 <body>
 <div id="header">
-    <?php include "./layout/slider.php";
-          include "./layout/back_nav.php";
+    <?php 
+    include "./layout/back_nav.php";
     ?>
 </div>
-<div id="container">
-<?php
+    <div id="container">
+    <?php
+    include "./layout/slider.php";
 if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
     $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
 }                                    // 有GET到do這個參數↓
@@ -131,7 +132,7 @@ if(isset($_GET['filter'])){  //分類
                 <?php
                 }
                 ?>
-                
+                <div>前台顯示</a></div>
             </li>
         <?php
             //偵測是否需要排序
@@ -207,6 +208,13 @@ if(isset($_GET['filter'])){  //分類
                 }
                 echo "</div>";
                 echo "<div class='text-center'>{$subject['total']}</div>";
+                echo "<div class='text-center'>";
+                        if($subject['sh']==1){
+                            echo '顯示';
+                        }else{
+                            echo '不顯示';
+                        }
+                echo "</div>";
                 echo "</li>";
                 if(isset($_SESSION['admin'])){
                 echo "</a>";}

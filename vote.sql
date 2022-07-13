@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2022 年 07 月 11 日 12:25
--- 伺服器版本： 10.3.34-MariaDB-0ubuntu0.20.04.1
--- PHP 版本： 7.4.3
+-- 主機： 127.0.0.1
+-- 產生時間： 2022-07-13 09:00:48
+-- 伺服器版本： 10.4.24-MariaDB
+-- PHP 版本： 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `s1110210`
+-- 資料庫： `vote`
 --
 
 -- --------------------------------------------------------
@@ -99,7 +99,11 @@ INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VAL
 (45, 17, 12, 51, '2022-07-10 09:59:06'),
 (46, 17, 13, 55, '2022-07-10 09:59:20'),
 (47, 17, 14, 60, '2022-07-10 09:59:31'),
-(48, 18, 12, 50, '2022-07-11 06:38:15');
+(48, 18, 12, 50, '2022-07-11 06:38:15'),
+(49, 4, 1, 59, '2022-07-11 13:07:32'),
+(50, 4, 16, 72, '2022-07-11 13:56:49'),
+(51, 17, 1, 2, '2022-07-11 14:02:48'),
+(52, 17, 16, 77, '2022-07-11 14:13:03');
 
 -- --------------------------------------------------------
 
@@ -120,7 +124,7 @@ CREATE TABLE `options` (
 
 INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (1, '便當', 1, 2),
-(2, '麥當勞', 1, 1),
+(2, '麥當勞', 1, 2),
 (3, '肯德雞', 1, 1),
 (4, '豬腳飯', 1, 1),
 (5, '美而美', 2, 2),
@@ -150,7 +154,7 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (56, '看電影', 13, 2),
 (57, '運動', 13, 1),
 (58, '踏青', 13, 1),
-(59, '炸雞全餐', 1, 0),
+(59, '炸雞全餐', 1, 1),
 (60, '美國', 14, 1),
 (61, '英國', 14, 0),
 (62, '澳洲', 14, 1),
@@ -159,7 +163,13 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (65, '韓國', 14, 0),
 (66, '土耳其', 14, 0),
 (67, '加拿大', 14, 0),
-(68, '歐洲', 14, 1);
+(68, '歐洲', 14, 1),
+(72, '貓咪', 16, 1),
+(73, '狗狗', 16, 0),
+(74, '烏龜', 16, 0),
+(75, '小魚', 16, 0),
+(76, '蛇', 16, 0),
+(77, '寵物鼠', 16, 1);
 
 -- --------------------------------------------------------
 
@@ -175,22 +185,24 @@ CREATE TABLE `subjects` (
   `multi_limit` tinyint(2) NOT NULL DEFAULT 1,
   `start` date NOT NULL COMMENT '開始日期',
   `end` date NOT NULL COMMENT '結束日期',
-  `total` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '投票總人數'
+  `total` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '投票總人數',
+  `sh` tinyint(1) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `subjects`
 --
 
-INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
-(1, '今天晚餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 25),
-(2, '明天早餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 8),
-(3, '明天上課穿什麼?', 2, 1, 1, '2022-06-13', '2022-06-23', 10),
-(9, '是否要實體上課', 3, 0, 1, '2022-06-29', '2022-07-09', 5),
-(11, '你最愛吃哪種類的美食', 4, 0, 1, '2022-07-04', '2022-07-08', 5),
-(12, '上學使用什麼交通工具?', 7, 0, 1, '2022-07-08', '2022-07-16', 6),
-(13, '喜歡的休閒娛樂', 67, 1, 1, '2022-07-08', '2022-07-18', 4),
-(14, '最想去哪個國家遊玩', 2, 0, 1, '2022-07-10', '2022-07-23', 4);
+INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`, `sh`) VALUES
+(1, '今天晚餐想吃什麼?', 4, 0, 1, '2022-06-13', '2022-07-12', 7, 0),
+(2, '明天早餐吃什麼?', 4, 0, 1, '2022-06-13', '2022-06-23', 8, 1),
+(3, '明天上課穿什麼?', 2, 1, 1, '2022-06-13', '2022-06-23', 10, 1),
+(9, '是否要實體上課', 3, 0, 1, '2022-06-29', '2022-07-09', 5, 1),
+(11, '你最愛吃哪種類的美食', 4, 0, 1, '2022-07-04', '2022-07-08', 5, 1),
+(12, '上學使用什麼交通工具?', 7, 0, 1, '2022-07-08', '2022-07-16', 6, 1),
+(13, '喜歡的休閒娛樂', 67, 1, 1, '2022-07-08', '2022-07-18', 4, 1),
+(14, '最想去哪個國家遊玩', 2, 0, 1, '2022-07-10', '2022-07-23', 4, 1),
+(16, '最想要養什麼寵物', 87, 0, 1, '2022-07-11', '2022-07-15', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -229,7 +241,6 @@ CREATE TABLE `users` (
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
   `gender` tinyint(1) UNSIGNED NOT NULL,
-  `addr` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `passnote` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -240,12 +251,12 @@ CREATE TABLE `users` (
 -- 傾印資料表的資料 `users`
 --
 
-INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `addr`, `education`, `reg_date`, `passnote`, `email`) VALUES
-(3, 'bii', 'MDEwNg==', 'Bii', '1986-01-06', 1, '中x街xx巷x號x樓', '大學', '2022-07-11 04:42:09', '0106', 'f1233772002@gmail.com'),
-(4, 'louise', 'MDUwMw==', 'louise', '2015-05-03', 1, '中榮街xxx巷x號x樓', '大學', '2022-07-10 09:54:20', '0503', 'f1233772002@gmail.com'),
-(8, 'gina', 'MDYxNQ==', '欣儀', '1922-06-15', 0, '新北市新莊區中榮街xxx巷9號x樓', '大學', '2022-07-10 07:05:21', '0615', 'f1233772002@gmail.com'),
-(17, 'ann', 'MDYyNzA2Mjc=', '恩恩', '2018-06-27', 0, 'xxxxx', '大學', '2022-07-11 04:43:48', '06270627', 'f1233772002@gmail.com'),
-(18, 's', 'c3Nzc3Nz', 's', '2022-07-11', 1, 's', 's', '2022-07-11 06:37:49', 's', 's@gmail.com');
+INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `education`, `reg_date`, `passnote`, `email`) VALUES
+(3, 'bii', 'MDEwNg==', 'Bii', '1986-01-06', 1, '大學', '2022-07-11 04:42:09', '0106', 'f1233772002@gmail.com'),
+(4, 'louise', 'MDUwMw==', 'louise', '2015-05-03', 1, '大學', '2022-07-10 09:54:20', '0503', 'f1233772002@gmail.com'),
+(8, 'gina', 'MDYxNQ==', '欣儀', '1922-06-15', 0, '大學', '2022-07-10 07:05:21', '0615', 'f1233772002@gmail.com'),
+(17, 'ann', 'MDYyNzA2Mjc=', '恩恩', '2018-06-27', 0, '大學', '2022-07-11 04:43:48', '06270627', 'f1233772002@gmail.com'),
+(18, 's', 'c3Nzc3Nz', 's', '2022-07-11', 1, 's', '2022-07-11 06:37:49', 's', 's@gmail.com');
 
 --
 -- 已傾印資料表的索引
@@ -301,19 +312,19 @@ ALTER TABLE `admins`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`

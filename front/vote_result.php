@@ -25,7 +25,7 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
 ?>
 <div style="width:700px;margin:auto">
     <h1 style="padding-top: 20px;color: #8501F5;
-    text-shadow: 2px 2px 3px #E1B8F5;" class="text-center"><?=$subject['subject'];?></h1>
+    text-shadow: 2px 2px 3px #E1B8F5;font-weight: bolder;" class="text-center"><?=$subject['subject'];?></h1>
     <!-- <div>總投票數:<?=$subject['total'];?></div> -->
     <li class="result-table-header">
         
@@ -66,7 +66,9 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
         if(isset($_SESSION['user'])){//有登入
             if(($end-$today)>=0){//還沒結束
     ?>
+    <div class="votediv">
         <button class="btn btn-info" onclick="location.href='?do=vote&id=<?=$_GET['id'];?>'">我要投票</button>
+    </div>
     <?php    
             }else{//結束
                 ?>
@@ -82,4 +84,5 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
     ?>
     
 </div>
+<br><br><br><br>
 

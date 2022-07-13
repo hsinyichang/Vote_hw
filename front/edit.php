@@ -12,11 +12,6 @@
         *{
             box-sizing: border-box;
         }
-        body{
-            background: #43C6AC;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
         .div{
             font-family: '華康粗圓體';
             margin: 0 auto;
@@ -61,11 +56,12 @@
     <div class="div">
     <h1 style="text-align: center;margin:0 auto 10px auto;
     border-radius: 20px;
-    width: 200px;
+    width: 250px;
     animation:slideInDown;
     animation-duration: 0.8s;
     color: #8501F5;
-    text-shadow: 2px 2px 3px #E1B8F5;">編輯會員資料</h1>
+    text-shadow: 2px 2px 3px #E1B8F5;
+    font-weight: bolder;">編輯會員資料</h1>
     <?php 
     include_once "connect.php";
     $sql="SELECT * FROM users WHERE id='{$_GET['id']}'";
@@ -93,14 +89,6 @@
         <div class="memtitle">性別</div>
             <div class="memdata">男<input style="width:40px;" type="radio" name="gender" value="1" <?=($user['gender']==1)?'checked':'';?>>
             女<input style="width: 40px;" type="radio" name="gender" value="0" <?=($user['gender']==0)?'checked':'';?>></div>
-        </li>
-        <li>
-            <div class="memtitle">地址</div>
-            <div class="memdata"><input type="text" name="addr" value="<?=$user['addr'];?>"></div>
-        </li>
-        <li>
-            <div class="memtitle">教育程度</div>
-            <div class="memdata"><input type="text" name="education" value="<?=$user['education'];?>"></div>
         </li>
         <li>
             <div class="memtitle">密碼提示</div>

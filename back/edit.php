@@ -63,6 +63,10 @@ dd($opts); */
             <td class="edit-td2"><input type="date" name="end" value="<?=date('Y-m-d',strtotime($subj['end']))?>"></td>
         </tr>
         <tr>
+            <td class="edit-td1">顯示前台</td>
+            <td class="edit-td2"><input type="radio" name="sh" value="1" <?=($subj['sh']==1)?'checked':'';?>>是<input type="radio" name="sh" value="0" <?=($subj['sh']==0)?'checked':'';?>>否</td>
+        </tr>
+        <tr>
             <td></td>
             <td class="edit-td2" style="text-align: center;"><input type="button" value="新增選項" id="addvote" required></td>
         </tr>

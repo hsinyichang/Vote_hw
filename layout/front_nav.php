@@ -22,21 +22,29 @@
         <?php
         }else{
         ?>
-    <div><a href='?do=login'><i class="fa-solid fa-circle-user"></i>登入</a></div>
+    <div>
+        <a href='#' id="membercenter"><i class="fa-solid fa-circle-user"></i>登入</a>
+        
+        <div class="dropdown-menu">
+            <li><a href='?do=login'><i class="fa-solid fa-circle-user"></i>會員登入</a></li>
+            <?php
+            // include_once "connect.php";/*放到程式開頭，因裡面有session start */
+            if(!isset($_SESSION['user'])){/*這裡判斷是否有session為登出或登入 */
+            ?>
+            <li><a href='./back.php'><i class="fa-solid fa-circle-user"></i>管理者登入</a></li>
+            <?php
+            } 
+            ?>
+        </div>
+    </div>
         <?php    
         }
         ?>
 
-        <?php
-        // include_once "connect.php";/*放到程式開頭，因裡面有session start */
-        if(!isset($_SESSION['user'])){/*這裡判斷是否有session為登出或登入 */
-        ?>
-    <div><a href="./back.php"><i class="fa-solid fa-circle-user"></i>後台管理</a></div>
-        <?php
-        }else{
-           
-        }
-        ?>
+        
+    
+        
+        
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

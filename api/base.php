@@ -68,7 +68,6 @@ function all($table,...$arg){
                 $sql.=$arg[1];
             }
         break;
-    
         //執行連線資料庫查詢並回傳sql語句執行的結果
         }
     
@@ -136,7 +135,6 @@ function math($table,$math,$col,...$arg){
     $pdo=pdo();
     
     $sql="SELECT $math(`$col`) FROM $table ";
-    
         if(!empty($arg[0])){
     
             foreach($arg[0] as $key => $value){
@@ -147,8 +145,7 @@ function math($table,$math,$col,...$arg){
     
             $sql.=" WHERE " . implode(" AND " ,$tmp);
     
-        }
-    
+        }       
         //使用fetchColumn()來取回第一欄位的資料，因為這個SQL語法
         //只有select 一個欄位的資料，因此這個函式會直接回傳計算的結果出來
         return $pdo->query($sql)->fetchColumn();
