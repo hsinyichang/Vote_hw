@@ -1,4 +1,3 @@
-<body>
 <!-- Carousel -->
 <div id="demo" class="carousel slide" data-bs-ride="carousel" style="width: 667px;margin: 0 auto;">
   <!-- Indicators/dots -->
@@ -33,4 +32,3 @@
     <span class="carousel-control-next-icon"></span>
   </button>
 </div>
-</body>
