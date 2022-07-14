@@ -1,4 +1,8 @@
 <nav>
+    <div class="img">
+            <img src="./img/title.png" alt="" width="250px" height="72px">
+    </div>
+    <div class="nav">
         <div><a href="index.php"><i class="fa-solid fa-house"></i>回首頁</a></div>
         <div><a href="?do=vote_list"><i class="fa-solid fa-bars"></i>投票列表</a></div>
         <?php
@@ -8,7 +12,7 @@
             $sql="SELECT * FROM `users` where acc='{$_SESSION['user']}'";
             $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         ?>
-    <div>
+        <div>
         <a href="#" id="membercenter"><i class="fa-solid fa-circle-user"></i>會員中心</a>
         <div class="dropdown-menu">
             <li><a href="?do=member_center">查看會員資料</a></li>
@@ -18,11 +22,11 @@
             <li><a href='?do=logout'><i class="fa-solid fa-circle-user"></i>登出</a></li>
         </div>
         
-    </div>
+        </div>
         <?php
         }else{
         ?>
-    <div>
+        <div>
         <a href='#' id="membercenter"><i class="fa-solid fa-circle-user"></i>登入</a>
         
         <div class="dropdown-menu">
@@ -35,6 +39,7 @@
             <?php
             } 
             ?>
+        </div>
         </div>
     </div>
         <?php    
