@@ -17,7 +17,11 @@ $log = "SELECT `subjects` . * , `logs` . `user_id`
     $loguser=$pdo->query($log)->fetchAll(PDO::FETCH_ASSOC);
     foreach($loguser as $val){//列出使用者投票紀錄
         if($val['id']==$_GET['id']){//如果該主題id=當前頁面id，則為已投過票
-            header("location:?do=vote_result1&id={$subject['id']}");
+            ?>
+            <script>
+            location:"?do=vote_result1&id={$subject['id']}"
+            </script>
+            <?php
         }
     }
 }
