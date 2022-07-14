@@ -42,7 +42,7 @@ include_once "./api/base.php";
 </div>
     <div id="container">
     <?php
-    include "./layout/slider.php";
+    include "./layout/slider-back.php";
 if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
     $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
 }                                    // 有GET到do這個參數↓
