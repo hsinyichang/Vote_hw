@@ -2,6 +2,7 @@
 //檢查帳密是否正確
 
 include_once "connect.php";
+session_start();
 $acc=$_POST['acc'];
 $pw=md5($_POST['pw']);//編碼過的
 
