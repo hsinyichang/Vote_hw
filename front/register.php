@@ -63,7 +63,7 @@
     </style>
 <body>
     <h1 class="reg-h1">會員註冊</h1>
-<form action="?do=store_member" method="post">
+<form action="./front/store_member.php" method="post">
     <table class="reg-table">
         <tr>
             <td class="reg-td1">帳號</td>

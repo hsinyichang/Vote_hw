@@ -42,7 +42,7 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
     $loguser=$pdo->query($log)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="acctitle">
-【<?=$uid['name'];?>】 的已投票主題  <img src="./img/vote.png" alt="vote" width="66px" height="66px">
+<img src="./img/vote.png" alt="vote" width="66px" height="66px">【<?=$uid['name'];?>】 的已投票主題
 </div>
 <div class="vlog">
 <?php
@@ -51,7 +51,7 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
     <div class="vlogdiv">
         <table class="vlogtable">
             <tr>
-                <th>
+                <th style="padding-top: 5px;">
                     <?=$val['subject'];?>
                 </th>
             </tr>
@@ -78,15 +78,15 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
                 </td>
             </tr>
             <tr>
-                <td style="padding-top: 8px;">
+                <td style="padding-top: 8px;padding-bottom:8px">
                 <span style="font-size: 16px;">共<?=$val['total'];?>人投票</span>
                 
                 </td>
             </tr>
         </table>
-        <br>
+        
         <div class="button">
-            <a href="?do=vote_result1&id=<?=$val['id']?>"><button type="button">詳細內容</button></a>
+            <a href="?do=vote_result&id=<?=$val['id']?>"><button type="button">詳細內容</button></a>
         </div>
     </div>
 <?php       

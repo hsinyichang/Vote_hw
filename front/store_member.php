@@ -8,6 +8,6 @@ $sql="INSERT INTO `users` (`acc`,`pw`,`name`,`birthday`,`gender`,`education`,`pa
 
 $pdo->exec($sql);
 
-header('location:?do=login');
+header('location:../index.php?do=login');
 
 ?>

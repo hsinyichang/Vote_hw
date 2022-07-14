@@ -70,7 +70,7 @@
     $sql="SELECT * FROM users WHERE id='{$_GET['id']}'";
     $user=$pdo->query($sql)->fetch();
     ?>
-<form action='?do=save_member' method="post">
+<form action='./front/save_member.php' method="post">
     <ul>
         <li>
             <div class="memtitle">帳號</div>

@@ -28,7 +28,7 @@
 }
 .cont{
     width: 278px;
-    height: 140px;
+    height: 150px;
     border: 1px solid #FEEBFA;
     background-color:rgba(249 , 199, 238, 0.4);
     /* margin-left: 65px; */
@@ -67,8 +67,10 @@
 }
 .ulcont{
     padding-left: 40px;
-    padding-top: 5px;
+    padding-top: 10px;
     font-size: 14px;
+    margin-bottom: 0;
+    paddin
 }
 #p{
     animation: heartBeat;

@@ -9,6 +9,6 @@ $sql="UPDATE `users`
             `email`='{$_POST['email']}'
         WHERE `id`='{$_POST['id']}'";                  
 $pdo->exec($sql);//登入帳號後把更新的資料存回資料庫
-header('location:?do=member_center');
+header('location:../index.php?do=member_center');
 
 ?>
