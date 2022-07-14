@@ -9,7 +9,16 @@
 
 include_once "./api/base.php";
 ?>
-<h1>分類管理</h1>
+<h1 style="text-align: center;
+    margin:0 auto 10px auto;
+    border-radius: 20px;
+    width: 200px;
+    animation:slideInDown;
+    animation-duration: 0.8s;
+    color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;
+    padding-top:2rem;
+    font-weight: bolder;">分類管理</h1>
 <div>
     <table id="table">
         <tr id="list-header">
@@ -19,7 +28,7 @@ include_once "./api/base.php";
         <form action="./api/add_type.php" method="post">
         <tr id="list-add">
             <td id="list-add-td"><input type="text" name="name" id="name" title="分類名稱" required placeholder="輸入分類名稱"></td>
-            <td><input class="btn btn-primary" type="submit" value="送出"></td>
+            <td><button class="btn btn-primary" style="height: 35px;" type="submit">送出</button></td>
         </tr>
         </form>
         <?php

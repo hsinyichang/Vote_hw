@@ -5,6 +5,20 @@
         integrity="sha512-Kyb4n9EVHqUml4QZsvtNk6NDNGO3+Ta1757DSJqpxe7uJlHX1dgpQ6Sk77OGoYA4zl7QXcOK1AlWf8P61lSLfQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+    <style>
+        h1{
+        text-align: center;
+    margin:0 auto 10px auto;
+    border-radius: 20px;
+    width: 200px;
+    animation:slideInDown;
+    animation-duration: 0.8s;
+    color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;
+    padding-top:2rem;
+    font-weight: bolder;
+        }
+    </style>
 <?php
 $id=$_GET['id'];
 $subj=find('subjects',$id);

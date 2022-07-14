@@ -1,4 +1,13 @@
-<h1>新增投票</h1>
+<h1 style="text-align: center;
+    margin:0 auto 10px auto;
+    border-radius: 20px;
+    width: 200px;
+    animation:slideInDown;
+    animation-duration: 0.8s;
+    color: #8501F5;
+    text-shadow: 2px 2px 3px #E1B8F5;
+    padding-top:2rem;
+    font-weight: bolder;">新增投票</h1>
 <form action="./api/add_vote.php" method="post">
     <table class="add-vote">
         <tr>
@@ -38,7 +47,7 @@
             </td>
         </tr>
         <tr>
-            <td class="add-vote-td">顯示前台</td>
+            <td class="add-vote-td">顯示前台：</td>
             <td class="edit-td2"><input type="radio" name="sh" value="1" checked>是<input type="radio" name="sh" value="0">否</td>
         </tr>
         <tr>

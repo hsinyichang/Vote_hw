@@ -13,9 +13,9 @@
             font-family: '華康粗圓體';
         }
         p{
-            padding-top:150px ;
+            padding-top:74px ;
             text-align:center;
-            font-size: 28px;
+            font-size: 2.5rem;
             
             
         }
