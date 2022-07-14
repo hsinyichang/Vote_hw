@@ -19,7 +19,7 @@ include_once "./api/base.php";
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 <style>
-    h1{
+    .h1{
     text-align: center;
     margin:0 auto 10px auto;
     border-radius: 20px;
@@ -29,6 +29,7 @@ include_once "./api/base.php";
     color: #8501F5;
     text-shadow: 2px 2px 3px #E1B8F5;
     padding-top:2rem;
+    font-weight: bolder;
     }
 </style>
 </head>
@@ -69,7 +70,7 @@ if(isset($_GET['filter'])){  //分類
 
 ?>
 <div>
-    <h1 class="h1">後台管理</h1>
+    <h1 class="h1" style="font-weight: bolder;">後台管理</h1>
     <div class="type">
         <label for="types">分類：</label>
         <select name="types" class="pretty-select" id="types" onchange="location.href=`?do=vote_list&filter=${this.value}&p=1<?=$querystr;?>`">
@@ -91,44 +92,44 @@ if(isset($_GET['filter'])){  //分類
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href="?order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href="?order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href="?order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
+                <div><a href="?order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
                 <?php
                 }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
+                    <div><a href="?order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
                 <?php 
                 }else{
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <div><a href="?order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                     }
                 ?>
                 <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href='?do=vote_list&order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href='?order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }else{
                 ?>
-                <div><a href='?do=vote_list&order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                <div><a href='?order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
                 <?php
                 }
                 ?>
@@ -194,25 +195,28 @@ if(isset($_GET['filter'])){  //分類
                     $end=strtotime($subject['end']);
                     $start=strtotime($subject['start']);
                     if($start-$today>0){
-                        echo "投票尚未開始";
+                        echo "<sapn style='color:orange'>投票尚未開始</span>";
                     }else{
                     if(($end-$today)>=0){
                         $remain=ceil(($end-$today)/(60*60*24));
                     if($end==$today){
                       echo "今天午夜截止";
                     }else{
-                    echo "倒數".$remain."天結束";}
+                    ?>
+                    <span style="color: green;">倒數<?=$remain?>天結束</span>
+                    <?php
+                    }
                     }else{
-                        echo "<span style='color:#45484A'>投票已結束</span>";
+                        echo "<span style='color:red'>投票結束</span>";
                     }
                 }
                 echo "</div>";
                 echo "<div class='text-center'>{$subject['total']}</div>";
                 echo "<div class='text-center'>";
                         if($subject['sh']==1){
-                            echo '顯示';
+                            echo '<span style="color:green;">顯示</span>';
                         }else{
-                            echo '不顯示';
+                            echo '<span style="color:red;">不顯示</span>';
                         }
                 echo "</div>";
                 echo "</li>";
@@ -240,10 +244,7 @@ if(isset($_GET['filter'])){  //分類
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $('.list-items').odd().css('color','#E87AFA');
-        $('.list-items').even().css('color','#F78872');
-    </script>
+    
 
 <?php
 }
