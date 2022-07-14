@@ -38,8 +38,8 @@ nav{
 }
 #container{
     min-width: 1330px;
-    position: relative;
-    top: 36px;
+    position: absolute;
+    top: 65px;
     
 }
 

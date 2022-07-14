@@ -38,8 +38,8 @@ nav{
 }
 
 #container{
-    position: relative;
-    top: 95px;
+    position: absolute;
+    top: 65px;
 }
 .type{  /*分類*/
     margin-left: 20%;

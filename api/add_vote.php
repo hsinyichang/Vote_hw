@@ -34,7 +34,6 @@ if(isset($_POST['option'])){
         }
     }
 }
-
 //使用to()函式來取代header，請參考base.php中的函式to($url)
 to('../back.php');
 ?>
