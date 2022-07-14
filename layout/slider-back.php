@@ -23,16 +23,16 @@
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href="index.php"><img src="./img/welcome.png" alt="Los Angeles" class="d-block rounded" style="width:100%; height:232px;"></a>
+      <a href="back.php"><img src="./img/welcome.png" alt="Los Angeles" class="d-block rounded" style="width:100%; height:232px;"></a>
     </div>
     <div class="carousel-item">
-      <a href="?do=vote_result&id=16"><img src="./img/animal.png" alt="animal" class="d-block rounded" style="width:100%; height:232px;"></a>
+      <a href="?do=edit&id=16"><img src="./img/animal.png" alt="animal" class="d-block rounded" style="width:100%; height:232px;"></a>
     </div>
     <div class="carousel-item">
-      <a href="?do=vote_result&id=11"><img src="./img/food.png" alt="New York" class="d-block rounded" style="width:100%; height:232px;"></a>
+      <a href="?do=edit&id=11"><img src="./img/food.png" alt="New York" class="d-block rounded" style="width:100%; height:232px;"></a>
     </div>
     <div class="carousel-item">
-      <a href="?do=vote_result&id=14"><img src="./img/travel.png" alt="New York" class="d-block rounded" style="width:100%; height:232px;"></a>
+      <a href="?do=edit&id=14"><img src="./img/travel.png" alt="New York" class="d-block rounded" style="width:100%; height:232px;"></a>
     </div>
   </div>
   

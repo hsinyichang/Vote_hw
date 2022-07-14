@@ -1,8 +1,11 @@
 <nav>
+    <div class="img">
+            <a href="back.php"><img src="./img/btitle.png" alt="" width="250px" height="57px"></a>
+    </div>
+    <div class="nav">
         <?php
         if(isset($_SESSION['admin'])){ //有登入才顯示
         ?>
-        <div><a href="back.php"><i class="fa-solid fa-house"></i>回首頁</a></div>
         <div><a href="?do=add_vote"><i class="fa-solid fa-plus"></i>新增投票</a></div>
         <div><a href="?do=admin_type"><i class="fa-solid fa-database"></i>分類管理</a></div>
         <?php
@@ -20,5 +23,5 @@
     <?php
     }
     ?>
-
+    </div>
 </nav>

@@ -1,9 +1,8 @@
 <nav>
     <div class="img">
-            <img src="./img/title.png" alt="" width="250px" height="72px">
+            <a href="index.php"><img src="./img/title.png" alt="" width="200px" height="57px"></a>
     </div>
     <div class="nav">
-        <div><a href="index.php"><i class="fa-solid fa-house"></i>回首頁</a></div>
         <div><a href="?do=vote_list"><i class="fa-solid fa-bars"></i>投票列表</a></div>
         <?php
         // include_once "connect.php";/*放到程式開頭，因裡面有session start */
