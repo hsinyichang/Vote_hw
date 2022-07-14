@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {//如果有登入的話就執行這行
 <div style="width:700px;margin:auto">
     <h1 style="padding-top: 20px;color: #8501F5;
     text-shadow: 2px 2px 3px #E1B8F5;font-weight: bolder;" class="text-center"><?=$subject['subject'];?></h1>
-    <div style="color: lightgrey;">總投票數:<?=$subject['total'];?>票</div>
+    <div style="color: lightgrey;">投票人數:<?=$subject['total'];?>人</div>
     <li class="result-table-header">
         
             <div class="lione">選項</div>
