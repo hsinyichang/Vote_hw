@@ -43,6 +43,9 @@
             color: #B95BC9;
             text-align: center;
         }
+        span:hover{
+            font-size: 1.3rem;
+        }
     </style>
     
 </head>
@@ -99,8 +102,6 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
     <a class="remove" href="javascript:
             swal.fire({
             title:'確定要刪除帳號?',
@@ -115,7 +116,7 @@
                 }else if(result.dismiss === Swal.DismissReason.cancel){
                     
                 }
-            });">移除個人資料</a>
+            });" style="text-decoration: none;"><span style="color: red;">移除個人資料</span></a>
 
     <!--
      

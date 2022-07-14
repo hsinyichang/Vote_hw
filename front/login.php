@@ -17,7 +17,7 @@
         p{
             padding-top:76px ;
             text-align:center;
-            font-size: 28px;
+            font-size: 2.5rem;
             
             
         }

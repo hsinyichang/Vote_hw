@@ -9,11 +9,23 @@ $user=$pdo->query($sql)->fetch();
 
 //$user=0,null,[],""  //true
 
-if(empty($user)){
-    echo "查無此帳號";
-}else{
-   echo "你當初提供的密碼提示為:".$user['passnote'];
-}
-
 ?>
-<a href="./index.php">回首頁</a><a href="?do=login">重新登入</a>
+<div class="chk-acc">
+<?php
+if(empty($user)){
+?> 
+    
+        <p>查無此帳號</p>
+    <?php
+    }else{
+    ?>
+        <p><span><?=$user['name']?></span>　您當初提供的密碼提示為:<br>
+         <input type="text" value="<?=$user['passnote']?>" readonly>   </p>
+    <?php
+    }
+    ?>
+
+    <a href="./index.php"><button type="button">回首頁</button></a>
+    <a href="?do=login"><button>重新登入</button></a>
+
+    </div>

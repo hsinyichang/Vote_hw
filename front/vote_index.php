@@ -23,12 +23,13 @@
     text-align: center;
     margin:0 auto 10px auto;
     border-radius: 20px;
-    width: 200px;
+    width: 270px;
     animation:slideInDown;
     animation-duration: 0.8s;
     color: #8501F5;
     text-shadow: 2px 2px 3px #E1B8F5;
     font-weight: bolder;
+    display: flex;
 }
 .three{
     display: flex;
@@ -113,7 +114,7 @@ $recent=all('subjects',$show,$order2.$limit);
 ?>
 
 <div class="one">
-    <div class="two"><h1 style="font-weight: bolder;">熱門主題</h1></div>
+    <div class="two"><img src="./img/hot.png" alt="hot" width="66px" height="66px"><h1 style="font-weight: bolder;">熱門主題</h1></div>
     
         <div class="three">
             <?php
@@ -146,7 +147,7 @@ $recent=all('subjects',$show,$order2.$limit);
 </div>
 
 <div class="one">
-    <div class="two"><h1 style="font-weight: bolder;">近期投票</h1></div>
+    <div class="two"><img src="./img/recent.png" alt="recent" width="66px" height="66px"><h1 style="font-weight: bolder;">近期投票</h1></div>
     
         <div class="three">
             <?php
@@ -177,8 +178,8 @@ $recent=all('subjects',$show,$order2.$limit);
     
 </div>
 <div style="height: 50px;">
-<a href="?do=vote_list" style="text-decoration: none; color:blueviolet;"><button id="p" style="text-align: center;width:65px;position: relative;left: 48%;top:100%">MORE...</button></a>
+<a href="?do=vote_list" style="text-decoration: none; color:blueviolet;"><button id="p" style="text-align: center;width:65px;position: relative;left: 48%;top:66%">MORE...</button></a>
 </div>
-
+<br><br><br><br>
 </body>
 </html>

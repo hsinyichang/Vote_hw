@@ -2,7 +2,7 @@
     *{
         box-sizing: border-box;
     }
-button{
+.button button{
     /* position: relative;
     left: 40%; */
     width: 62px;
@@ -19,16 +19,17 @@ button{
     width: 64px;
     margin: 0 auto;
 }
-button:hover{
+.button button:hover{
     cursor: pointer;
     background-color: #FFA6E0;
 }
 .acctitle{
     text-align: center;
     padding-top: 30px;
-    font-size: 30px;
+    font-size: 2.5rem;
     color: #8501F5;
     text-shadow: 2px 2px 3px #E1B8F5;
+    font-weight: bolder;
 }
 </style>
 <?php
@@ -41,7 +42,7 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
     $loguser=$pdo->query($log)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="acctitle">
-【<?=$uid['name'];?>】 的已投票主題
+【<?=$uid['name'];?>】 的已投票主題  <img src="./img/vote.png" alt="vote" width="66px" height="66px">
 </div>
 <div class="vlog">
 <?php

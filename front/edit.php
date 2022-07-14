@@ -27,6 +27,7 @@
         .memtitle{
             width: 125px;
             padding: 0.5rem 0;
+            font-weight: bolder;
         }
         .memdata{
             width: 409px;
@@ -47,6 +48,20 @@
         .fa-eye{
             margin-left: -25px;
             margin-top: 9px;
+        }
+        .edit-btn button{
+            width: 68px;
+            height:28px;
+            background-color:pink;
+            border-radius: 10px;
+            border: 1px solid pink;
+            box-shadow: 5px 5px 6px #F4DDFC;
+            color: white;
+            font-size: 16px;
+            margin-left: 20px;
+            position: relative;
+            left: 40%;
+            font-weight:bolder;
         }
 
     </style>
@@ -91,6 +106,10 @@
             女<input style="width: 40px;" type="radio" name="gender" value="0" <?=($user['gender']==0)?'checked':'';?>></div>
         </li>
         <li>
+            <div class="memtitle">教育程度</div>
+            <div class="memdata"><input type="text" name="education" value="<?=$user['education'];?>"></div>
+        </li>
+        <li>
             <div class="memtitle">密碼提示</div>
             <div class="memdata"><input type="text" name="passnote" value="<?=$user['passnote'];?>"></div>
         </li>
@@ -99,7 +118,7 @@
             <div class="memdata"><input type="email" name="email" value="<?=$user['email'];?>"></div>
         </li>
     </ul>
-    <div>
+    <div class="edit-btn">
         <input type="hidden" name="id" value="<?=$user['id'];?>">
         <button type="submit">送出</button>
     </div>
