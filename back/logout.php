@@ -1,5 +1,5 @@
 <?php
 session_start();
 unset($_SESSION['admin']);
-header('location:./back.php');
+header("location:../back.php");
 ?>

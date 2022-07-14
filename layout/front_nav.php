@@ -18,7 +18,7 @@
             <li><a href="?do=edit&id=<?=$user['id'];?>">編輯會員資料</a></li>
             <li><a href="?do=vote_log">查看已投票主題</a></li>
             <li><hr></li>
-            <li><a href='?do=logout'><i class="fa-solid fa-circle-user"></i>登出</a></li>
+            <li><a href='./front/logout.php'><i class="fa-solid fa-circle-user"></i>登出</a></li>
         </div>
         
         </div>

@@ -1,7 +1,7 @@
 <?php
 //檢查帳密是否正確
 
-include "connect.php";
+include_once "connect.php";
 $acc=$_POST['acc'];
 $pw=md5($_POST['pw']);//編碼過的
 
@@ -21,8 +21,8 @@ $chk=$pdo->query($sql)->fetchColumn();
 //if($acc==$user['acc'] && $pw==$user['pw']){
 if($chk){
     $_SESSION['admin']=$acc;//存入帳號到session
-    header("location:./back.php");
+    header("location:../back.php");
 }else{
-    header("location:?do=login&error=帳號或密碼錯誤");
+    header("location:../back.php?do=login&error=帳號或密碼錯誤");
 }
 ?>

@@ -1,16 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投票首頁</title>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-</head>
 <style>
 .one{
     /* border: solid 1px gray; */
@@ -96,10 +83,7 @@
     color: white;
     font-size: 14px;
 }
-
 </style>
-
-
 <body>
 <?php
 include_once "./api/base.php";
@@ -182,4 +166,3 @@ $recent=all('subjects',$show,$order2.$limit);
 </div>
 <br><br><br><br>
 </body>
-</html>

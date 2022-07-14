@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員註冊</title>
+
     <style>
         .reg-h1{
             text-align: center;
@@ -66,10 +60,7 @@
             cursor: pointer;
     background-color: #FFA6E0;
         }
-        
-
     </style>
-</head>
 <body>
     <h1 class="reg-h1">會員註冊</h1>
 <form action="?do=store_member" method="post">
@@ -114,4 +105,3 @@
     <br><br><br><br><br>
 </form>
 </body>
-</html>

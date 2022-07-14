@@ -38,7 +38,7 @@ nav{
 }
 #container{
     min-width: 1330px;
-    position: absolute;
+    position: relative;
     top: 65px;
     
 }

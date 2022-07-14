@@ -15,7 +15,7 @@
         <?php 
         if(isset($_SESSION['admin'])){
         ?>
-            <div><a href="?do=logout"><i class="fa-solid fa-circle-user"></i>登出</a></div>
+            <div><a href="./back/logout.php"><i class="fa-solid fa-circle-user"></i>登出</a></div>
         <?php
         }else{//沒登入狀態
         ?>

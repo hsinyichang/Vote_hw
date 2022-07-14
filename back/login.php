@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員登入</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <style>
         
         body{
@@ -95,7 +87,6 @@
             margin-left: -32px;
         }
     </style>
-</head>
 <body>
     <div class="login">
         <p><i class="fa-regular fa-bell" style="color:orange ;"></i>&nbsp;<span style="font-weight: bolder;text-align: center;
@@ -107,7 +98,7 @@ if(isset($_GET['error'])) {
     echo "<h2 style='color:red;text-align:center'>{$_GET['error']}</h2>";
 }
     ?>
-    <form action='?do=chk_login' method="post">
+    <form action='./back/chk_login.php' method="post">
         <table>
             <tr>        
                 <td class="td2">
@@ -162,4 +153,3 @@ if(isset($_GET['error'])) {
     </script>
 </div>
 </body>
-</html>

@@ -38,7 +38,7 @@ nav{
 }
 
 #container{
-    position: absolute;
+    position: relative;
     top: 65px;
 }
 .type{  /*分類*/
