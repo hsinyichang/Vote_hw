@@ -1,29 +1,33 @@
 <style>
-    *{
-        box-sizing: border-box;
-    }
-.button button{
+* {
+    box-sizing: border-box;
+}
+
+.button button {
     /* position: relative;
     left: 40%; */
     width: 62px;
-    height:22px;
-    background-color:pink;
+    height: 22px;
+    background-color: pink;
     border-radius: 10px;
     border: 1px solid pink;
     box-shadow: 5px 5px 6px #F4DDFC;
     color: white;
     font-size: 14px;
-       
+
 }
-.button{
+
+.button {
     width: 64px;
     margin: 0 auto;
 }
-.button button:hover{
+
+.button button:hover {
     cursor: pointer;
     background-color: #FFA6E0;
 }
-.acctitle{
+
+.acctitle {
     text-align: center;
     padding-top: 30px;
     font-size: 2.5rem;
@@ -42,10 +46,10 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
     $loguser=$pdo->query($log)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="acctitle">
-<img src="./img/vote.png" alt="vote" width="66px" height="66px">【<?=$uid['name'];?>】 的已投票主題
+    <img src="./img/vote.png" alt="vote" width="66px" height="66px">【<?=$uid['name'];?>】 的已投票主題
 </div>
 <div class="vlog">
-<?php
+    <?php
     foreach($loguser as $val){//列出使用者投票紀錄
 ?>
     <div class="vlogdiv">
@@ -79,17 +83,17 @@ $uid=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);//抓到使用者的id
             </tr>
             <tr>
                 <td style="padding-top: 8px;padding-bottom:8px">
-                <span style="font-size: 16px;">共<?=$val['total'];?>人投票</span>
-                
+                    <span style="font-size: 16px;">共<?=$val['total'];?>人投票</span>
+
                 </td>
             </tr>
         </table>
-        
+
         <div class="button">
             <a href="?do=vote_result&id=<?=$val['id']?>"><button type="button">詳細內容</button></a>
         </div>
     </div>
-<?php       
+    <?php       
     }
 ?>
 </div>

@@ -11,16 +11,17 @@ $user=$pdo->query($sql)->fetch();
 
 ?>
 <div class="chk-acc">
-<?php
+    <?php
 if(empty($user)){
-?> 
-    
-        <p>查無此帳號</p>
+?>
+
+    <p>查無此帳號</p>
     <?php
     }else{
     ?>
-        <p><span><?=$user['name']?></span>　您當初提供的密碼提示為:<br>
-         <input type="text" value="<?=$user['passnote']?>" readonly>   </p>
+    <p><span><?=$user['name']?></span>　您當初提供的密碼提示為:<br>
+        <input type="text" value="<?=$user['passnote']?>" readonly>
+    </p>
     <?php
     }
     ?>
@@ -28,4 +29,4 @@ if(empty($user)){
     <a href="./index.php"><button type="button">回首頁</button></a>
     <a href="?do=login"><button>重新登入</button></a>
 
-    </div>
+</div>

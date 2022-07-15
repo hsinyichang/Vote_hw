@@ -4,6 +4,7 @@ include_once "./api/base.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,35 +13,39 @@ include_once "./api/base.php";
     <!--使用拆分css檔案的方式來區分共用的css設定及前後台不同的css-->
     <link rel="stylesheet" href="./css/basic.css">
     <link rel="stylesheet" href="./css/back.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-    .h1{
-    text-align: center;
-    margin:0 auto 10px auto;
-    border-radius: 20px;
-    width: 200px;
-    animation:slideInDown;
-    animation-duration: 0.8s;
-    color: #8501F5;
-    text-shadow: 2px 2px 3px #E1B8F5;
-    padding-top:2rem;
-    font-weight: bolder;
+    <style>
+    .h1 {
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 20px;
+        width: 200px;
+        animation: slideInDown;
+        animation-duration: 0.8s;
+        color: #8501F5;
+        text-shadow: 2px 2px 3px #E1B8F5;
+        padding-top: 2rem;
+        font-weight: bolder;
     }
-</style>
+    </style>
 </head>
 
 <body>
-<div id="header">
-    <?php 
+    <div id="header">
+        <?php 
     include "./layout/back_nav.php";
     ?>
-</div>
+    </div>
     <div id="container">
-    <?php
+        <?php
     include "./layout/slider-back.php";
 if(isset($_GET['do'])){//根據網址有沒有帶do這個參數來決定要include那個外部檔案
     $file="./back/".$_GET['do'].".php";// 按下button 觸發onclick事件 帶入query string
@@ -68,13 +73,14 @@ if(isset($_GET['filter'])){  //分類
 
 
 ?>
-<div>
-    <h1 class="h1" style="font-weight: bolder;">後台管理</h1>
-    <div class="type">
-        <label for="types">分類：</label>
-        <select name="types" class="pretty-select" id="types" onchange="location.href=`?do=vote_list&filter=${this.value}&p=1<?=$querystr;?>`">
-            <option value="0">全部</option>
-        <?php
+        <div>
+            <h1 class="h1" style="font-weight: bolder;">後台管理</h1>
+            <div class="type">
+                <label for="types">分類：</label>
+                <select name="types" class="pretty-select" id="types"
+                    onchange="location.href=`?do=vote_list&filter=${this.value}&p=1<?=$querystr;?>`">
+                    <option value="0">全部</option>
+                    <?php
             $types=all("types");
             foreach($types as $type){
                 $selected=(isset($_GET['filter']) && $_GET['filter']==$type['id'])?'selected':'';
@@ -83,58 +89,66 @@ if(isset($_GET['filter'])){  //分類
                 echo "</option>";
             }
             ?>
-        </select>
-    </div>
-        <ul class='list'>
-            <li class='list-header'>
-                <div>投票主題</div>
-                <?php
+                </select>
+            </div>
+            <ul class='list'>
+                <li class='list-header'>
+                    <div>投票主題</div>
+                    <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+                    <div><a href="?order=multiple&type=desc<?=$p;?><?=$queryfilter;?>">單/複選題 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                 }else{
                 ?>
-                <div><a href="?order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+                    <div><a href="?order=multiple&type=asc<?=$p;?><?=$queryfilter;?>">單/複選題 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                 }
                 ?>
-                <?php
+                    <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+                    <div><a href="?order=end&type=desc<?=$p;?><?=$queryfilter;?>">投票期間 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                 }else{
                 ?>
-                <div><a href="?order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
-                <?php
+                    <div><a href="?order=end&type=asc<?=$p;?><?=$queryfilter;?>">投票期間 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                 }
                 ?>
-                <?php
+                    <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                    <div><a href="?order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
-                <?php 
+                    <div><a href="?order=remain&type=desc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php 
                 }else{
                 ?>
-                    <div><a href="?order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+                    <div><a href="?order=remain&type=asc<?=$p;?><?=$queryfilter;?>">剩餘天數 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                     }
                 ?>
-                <?php
+                    <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href='?order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+                    <div><a href='?order=total&type=desc<?=$p;?><?=$queryfilter;?>'>投票人數 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                 }else{
                 ?>
-                <div><a href='?order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+                    <div><a href='?order=total&type=asc<?=$p;?><?=$queryfilter;?>'>投票人數 <i
+                                class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+                    <?php
                 }
                 ?>
-                <div>前台顯示</a></div>
-            </li>
-        <?php
+                    <div>前台顯示</a></div>
+                </li>
+                <?php
             //偵測是否需要排序
             $orderStr='';
             if(isset($_GET['order'])){
@@ -202,8 +216,8 @@ if(isset($_GET['filter'])){  //分類
                       echo "今天午夜截止";
                     }else{
                     ?>
-                    <span style="color: green;">倒數<?=$remain?>天結束</span>
-                    <?php
+                <span style="color: green;">倒數<?=$remain?>天結束</span>
+                <?php
                     }
                     }else{
                         echo "<span style='color:red'>投票結束</span>";
@@ -224,9 +238,9 @@ if(isset($_GET['filter'])){  //分類
             }
 
         ?>
-        </ul>
-        <div class="text-center">
-        <?php
+            </ul>
+            <div class="text-center">
+                <?php
         if($pages > 1){
             for($i=1;$i<=$pages;$i++){
     
@@ -237,22 +251,23 @@ if(isset($_GET['filter'])){  //分類
         }
         
         ?>
-        <br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br>
+            </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<?php
+
+        <?php
 }
     }
 ?>
 
-</div>
-<div>
-    <?php include "./layout/footer.php";?>
-</div> 
+    </div>
+    <div>
+        <?php include "./layout/footer.php";?>
+    </div>
 </body>
+
 </html>

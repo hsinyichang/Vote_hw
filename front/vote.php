@@ -22,18 +22,19 @@ dd($opts); */
                 <?php
                 if($subject['multiple']==0){//抓到id值 判斷是單/複選 帶入checkbox 還是radio
                 ?>
-                    <input type="radio" name="opt" value="<?=$opt['id'];?>" required>
+                <input type="radio" name="opt" value="<?=$opt['id'];?>" required>
                 <?php
                 }else{
                 ?>
-                    <input type="checkbox" name="opt[]" value="<?=$opt['id'];?>">
+                <input type="checkbox" name="opt[]" value="<?=$opt['id'];?>">
                 <?php
                 }
                 ?>
-                <?=$opt['option'];?> <!--帶入選項名稱-->
+                <?=$opt['option'];?>
+                <!--帶入選項名稱-->
             </div>
 
-        <?php
+            <?php
         }
         ?>
             <div class="votedone">

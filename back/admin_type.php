@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.css"
-        integrity="sha512-CJ5goVzT/8VLx0FE2KJwDxA7C6gVMkIGKDx31a84D7P4V3lOVJlGUhC2mEqmMHOFotYv4O0nqAOD0sEzsaLMBg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-CJ5goVzT/8VLx0FE2KJwDxA7C6gVMkIGKDx31a84D7P4V3lOVJlGUhC2mEqmMHOFotYv4O0nqAOD0sEzsaLMBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"
-        integrity="sha512-Kyb4n9EVHqUml4QZsvtNk6NDNGO3+Ta1757DSJqpxe7uJlHX1dgpQ6Sk77OGoYA4zl7QXcOK1AlWf8P61lSLfQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
+    integrity="sha512-Kyb4n9EVHqUml4QZsvtNk6NDNGO3+Ta1757DSJqpxe7uJlHX1dgpQ6Sk77OGoYA4zl7QXcOK1AlWf8P61lSLfQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
 <?php
 
 include_once "./api/base.php";
@@ -26,10 +26,11 @@ include_once "./api/base.php";
             <td>操作</td>
         </tr>
         <form action="./api/add_type.php" method="post">
-        <tr id="list-add">
-            <td id="list-add-td"><input type="text" name="name" id="name" title="分類名稱" required placeholder="輸入分類名稱"></td>
-            <td><button class="btn btn-primary" style="height: 35px;" type="submit">送出</button></td>
-        </tr>
+            <tr id="list-add">
+                <td id="list-add-td"><input type="text" name="name" id="name" title="分類名稱" required
+                        placeholder="輸入分類名稱"></td>
+                <td><button class="btn btn-primary" style="height: 35px;" type="submit">送出</button></td>
+            </tr>
         </form>
         <?php
         $types=all('types');
@@ -37,8 +38,8 @@ include_once "./api/base.php";
             echo "<tr id='list-items'>";
             echo "<td>{$type['name']}</td>";
             echo "<td class='text-center'>";//操作區
-            ?> 
-            <a class="del" href="javascript:
+            ?>
+        <a class="del" href="javascript:
             swal.fire({
             title:'確定要刪除<br>【<?=$type['name']?>】分類?',
             icon:'warning',
@@ -53,7 +54,7 @@ include_once "./api/base.php";
                     
                 }
             });">刪除</a>
-            <?php
+        <?php
             echo "</td>";
             echo "</tr>";
         }

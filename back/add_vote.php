@@ -16,7 +16,7 @@
             </td>
             <td style="width: 350px;">
                 <select name="types" id="types" style="width: 100px; height:25px">
-                <?php
+                    <?php
                     $types=all("types");
                     foreach($types as $type){
                     echo "<option value='{$type['id']}'>";
@@ -40,15 +40,16 @@
                 <label for="">單/複選：</label>
             </td>
             <td style="color: #B95BC9;">
-                <input type="radio" name="multiple" value="0" checked >
+                <input type="radio" name="multiple" value="0" checked>
                 <label>單選</label>
-                <input type="radio" name="multiple" value="1" >
+                <input type="radio" name="multiple" value="1">
                 <label>複選</label>
             </td>
         </tr>
         <tr>
             <td class="add-vote-td">顯示前台：</td>
-            <td class="edit-td2"><input type="radio" name="sh" value="1" checked>是<input type="radio" name="sh" value="0">否</td>
+            <td class="edit-td2"><input type="radio" name="sh" value="1" checked>是<input type="radio" name="sh"
+                    value="0">否</td>
         </tr>
         <tr>
             <td class="add-vote-td">開始時間：</td>
@@ -65,31 +66,33 @@
                     <label>選項:</label>
                 </td>
                 <td>
-                    <input type="text" name="option[]"required placeholder="輸入選項">　<input type="button" value="新增選項" id="addvote" >
+                    <input type="text" name="option[]" required placeholder="輸入選項">　<input type="button" value="新增選項"
+                        id="addvote">
                 </td>
             </tr>
         </tbody>
     </table>
     <br><br>
     <div class="add-input">
-    <input type="submit" value="完成新增">
-    
+        <input type="submit" value="完成新增">
+
     </div><br><br><br><br><br>
 </form>
-    
-    <script>
-        // 動態新增欄位id編號預設值
-        let trId = 1;
 
-        // 動態新增欄位
-        $("#addvote").click(function () {
-            $("#options").append('<tr id="tr'+trId+'"><td class="add-vote-td"><label>選項:</label></td><td><input type="text" name="option[]" required placeholder="輸入選項">　<button class="delbut" type="button" onclick="delbtn(' + trId + ')">刪除</button></td></tr>');
-            trId++;
-        });
-        
-        // 動態刪除欄位
-        function delbtn(id) {
-            $("#tr" + id).remove();
-        }    
-        
-    </script>
+<script>
+// 動態新增欄位id編號預設值
+let trId = 1;
+
+// 動態新增欄位
+$("#addvote").click(function() {
+    $("#options").append('<tr id="tr' + trId +
+        '"><td class="add-vote-td"><label>選項:</label></td><td><input type="text" name="option[]" required placeholder="輸入選項">　<button class="delbut" type="button" onclick="delbtn(' +
+        trId + ')">刪除</button></td></tr>');
+    trId++;
+});
+
+// 動態刪除欄位
+function delbtn(id) {
+    $("#tr" + id).remove();
+}
+</script>

@@ -18,9 +18,10 @@ if(isset($_GET['filter'])){  //分類
 <div>
     <div class="type">
         <label for="types" style="font-weight: bolder; font-size:larger">分類：</label>
-        <select name="types" class="pretty-select" id="types" onchange="location.href=`?do=vote_list&filter=${this.value}&p=1<?=$querystr;?>`">
+        <select name="types" class="pretty-select" id="types"
+            onchange="location.href=`?do=vote_list&filter=${this.value}&p=1<?=$querystr;?>`">
             <option value="0">全部</option>
-        <?php
+            <?php
             $types=all("types");
             foreach($types as $type){
                 $selected=(isset($_GET['filter']) && $_GET['filter']==$type['id'])?'selected':'';
@@ -31,55 +32,63 @@ if(isset($_GET['filter'])){  //分類
             ?>
         </select>
     </div>
-        <ul class='list'>
-            <li class='list-header'>
-                <div>投票主題</div>
-                <?php
+    <ul class='list'>
+        <li class='list-header'>
+            <div>投票主題</div>
+            <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=desc<?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+            <div><a href="?do=vote_list&order=multiple&type=desc<?=$queryfilter;?>">單/複選題 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=multiple&type=asc<?=$queryfilter;?>">單/複選題 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+            <div><a href="?do=vote_list&order=multiple&type=asc<?=$queryfilter;?>">單/複選題 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                 }
                 ?>
-                <?php
+            <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href="?do=vote_list&order=end&type=desc<?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+            <div><a href="?do=vote_list&order=end&type=desc<?=$queryfilter;?>">投票期間 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                 }else{
                 ?>
-                <div><a href="?do=vote_list&order=end&type=asc<?=$queryfilter;?>">投票期間 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>   
-                <?php
+            <div><a href="?do=vote_list&order=end&type=asc<?=$queryfilter;?>">投票期間 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                 }
                 ?>
-                <?php
+            <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=desc<?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div> 
-                <?php 
+            <div><a href="?do=vote_list&order=remain&type=desc<?=$queryfilter;?>">剩餘天數 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php 
                 }else{
                 ?>
-                    <div><a href="?do=vote_list&order=remain&type=asc<?=$queryfilter;?>">剩餘天數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+            <div><a href="?do=vote_list&order=remain&type=asc<?=$queryfilter;?>">剩餘天數 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                     }
                 ?>
-                <?php
+            <?php
                 if(isset($_GET['type']) && $_GET['type']=='asc'){
                 ?>
-                <div><a href='?do=vote_list&order=total&type=desc<?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+            <div><a href='?do=vote_list&order=total&type=desc<?=$queryfilter;?>'>投票人數 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                 }else{
                 ?>
-                <div><a href='?do=vote_list&order=total&type=asc<?=$queryfilter;?>'>投票人數 <i class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
-                <?php
+            <div><a href='?do=vote_list&order=total&type=asc<?=$queryfilter;?>'>投票人數 <i
+                        class="fa-solid fa-arrow-right-arrow-left"></i></a></div>
+            <?php
                 }
                 ?>
-                
-            </li>
+
+        </li>
         <?php
             //偵測是否需要排序
             $orderStr='';
@@ -172,8 +181,8 @@ if(isset($_GET['filter'])){  //分類
             }
 
         ?>
-        </ul>
-        <!-- <div class="text-center">
+    </ul>
+    <!-- <div class="text-center">
         <?php
         if($pages > 1){
             for($i=1;$i<=$pages;$i++){
@@ -186,12 +195,12 @@ if(isset($_GET['filter'])){  //分類
         ?>
         
         </div> -->
-        <br><br><br><br>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $('.list-items').odd().css('color','#E87AFA');
-        $('.list-items').even().css('color','#F78872');
-    </script>
+    <br><br><br><br>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+$('.list-items').odd().css('color', '#E87AFA');
+$('.list-items').even().css('color', '#F78872');
+</script>

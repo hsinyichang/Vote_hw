@@ -11,6 +11,8 @@ $add_subject=[
     'type_id'=>$_POST['types'],
     'start'=>$_POST['start'],
     'end'=>$_POST['end'],
+    'multiple'=>$_POST['multiple'],
+    'sh'=>$_POST['sh']
 ];
 
 //使用save()函式把投票主題存至資料表subjects中
